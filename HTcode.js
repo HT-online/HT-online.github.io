@@ -263,7 +263,7 @@ window.onload = function () {
         let waterSurface = new THREE.Mesh( waterGeometry, waterMaterial );
         waterSurface.name = "waterSurface";
         waterGeometry.computeFaceNormals();
-        scene.add( waterSurface );
+        //scene.add( waterSurface );
 
         //new THREE.Face3((i*iMax+j)*6+0, (i*iMax+j)*6+1, (i*iMax+j)*6+2),
         //let pos1 = scene.getObjectByName("waterSurface").geometry.vertices[(shipPosition.z-1)/polygonSize*600+shipPosition.x/polygonSize*60];
@@ -288,7 +288,7 @@ window.onload = function () {
         if(camera.rotation.x < -Math.PI/2)camera.rotation.x = -Math.PI/2;
         renderer.render(scene, camera);
 
-        scene.remove( waterSurface );
+        //scene.remove( waterSurface );
         //scene.remove( pos1 );
         //scene.remove( pos2 );
         // clean up
