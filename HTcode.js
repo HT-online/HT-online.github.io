@@ -127,10 +127,17 @@ window.onload = function () {
         TextureBody.needUpdate = true;
     });*/
 
-    var objLoader = new THREE.OBJLoader();
+    let meshes = [];
+    let objLoader = new THREE.OBJLoader();
     objLoader.load('Boat.obj',function(object){
         console.log(object);
+        object.traverse(function(child){
+            if(child instanceof THREE.Mesh)
+                meshes.push(child);
+        });
     });
+    let pirateShip = meshes[0];
+    scene.add(pirateShip);
     let w, a, s, d, bsp, sft;// Определение переменных для кнопок
     bsp = sft = w = a = s = d = false;// Инициализация переменных для кнопок
 
