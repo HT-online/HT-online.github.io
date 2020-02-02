@@ -128,7 +128,7 @@ window.onload = function () {
     });*/
 
     var objLoader = new THREE.OBJLoader();
-    objLoader.load('boat.obj',function(object){
+    objLoader.load('Boat.obj',function(object){
         console.log(object);
     });
     let w, a, s, d, bsp, sft;// Определение переменных для кнопок
