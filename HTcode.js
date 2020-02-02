@@ -97,15 +97,6 @@ window.onload = function () {
 
     /* Создание сцены */
     let scene = new THREE.Scene();
-    /* Создание камеры */
-    let camera = new THREE.PerspectiveCamera(100, screenWidth / screenHeight, 0.1, 1000);
-    /* Назначение порядка вращения камеры */
-    camera.rotation.order = 'YXZ';
-    // Начальные координаты камеры
-    camera.position.z = 400;
-    camera.position.x = 600;
-    camera.position.y = 70;
-    camera.rotation.y = Math.PI;
     /* Создание визуализатора */
     let renderer = new THREE.WebGLRenderer();
     renderer.setClearColor("#0000FF");
@@ -141,6 +132,15 @@ window.onload = function () {
     let w, a, s, d, bsp, sft;// Определение переменных для кнопок
     bsp = sft = w = a = s = d = false;// Инициализация переменных для кнопок
 
+    /* Создание камеры */
+    let camera = new THREE.PerspectiveCamera(100, screenWidth / screenHeight, 0.1, 1000);
+    /* Назначение порядка вращения камеры */
+    camera.rotation.order = 'YXZ';
+    // Начальные координаты камеры
+    camera.position.z = 400;
+    camera.position.x = 600;
+    camera.position.y = 70;
+    camera.rotation.y = Math.PI;
     // Создание источника свята рядом с камерой
     let q1 = createLight(scene, "#FFFFFF", 0);
     // Координаты солнца
