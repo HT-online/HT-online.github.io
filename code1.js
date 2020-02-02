@@ -46,8 +46,10 @@ window.onload = function () {
     objLoader.load('Boat.obj',function(object){
         console.log(object);
         object.traverse(function(child){
-            if(child instanceof THREE.Mesh)
+            if(child instanceof THREE.Mesh){
+                console.log("child instanceof THREE.Mesh!!!");
                 meshes.push(child);
+            }
         });
     });
     let pirateShip = meshes[0];
