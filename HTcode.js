@@ -128,7 +128,9 @@ window.onload = function () {
         });
     });
     let pirateShip = meshes[0];
+    
     scene.add(pirateShip);
+    pirateShip.scale = new THREE.vector3(0.001,0.001,0.001);
     let w, a, s, d, bsp, sft;// Определение переменных для кнопок
     bsp = sft = w = a = s = d = false;// Инициализация переменных для кнопок
 
