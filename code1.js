@@ -36,6 +36,37 @@ window.onload = function () {
     objLoader.load('boat.obj',function(object){
         console.log(object);
     });*/
+    
+  var manager = new THREE.LoadingManager();
+  var loader  = new THREE.ImageLoader( manager );
+
+  manager.onProgress = function ( item, loaded, total ) {
+
+	};
+
+  var textureBody = new THREE.Texture();
+  var textureHead = new THREE.Texture();
+
+  var onProgress = function ( xhr ) {
+					if ( xhr.lengthComputable ) {
+						var percentComplete = xhr.loaded / xhr.total * 100;
+						console.log( Math.round(percentComplete, 2) + '% downloaded' );
+					}
+  };
+
+  var onError = function ( xhr ) { };
+
+  loader.load( 'model/Body diff MAP.jpg', function ( image ) {
+    textureBody.image = image;
+    textureBody.needsUpdate = true;
+  });
+
+  loader.load( 'model/HEAD diff MAP.jpg', function ( image ) {
+    textureHead.image = image;
+    textureHead.needsUpdate = true;
+  });
+
+  var meshes = [];
     var objLoader = new THREE.OBJLoader();
 
     objLoader.load( 'model/bb8.obj', function ( object ) {
