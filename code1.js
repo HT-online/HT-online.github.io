@@ -94,7 +94,14 @@ window.onload = function () {
     gltfLoader.load( 'destroyer/scene.gltf', function ( object ) {
   
       console.log(object);
-  
+      scene.add( gltf.scene );
+
+      gltf.animations; // Array<THREE.AnimationClip>
+      gltf.scene; // THREE.Scene
+		  gltf.scenes; // Array<THREE.Scene>
+			gltf.cameras; // Array<THREE.Camera>
+			gltf.asset; // Object
+			/*
       object.traverse( function ( child )
       {
         if ( child instanceof THREE.Mesh )
@@ -102,7 +109,7 @@ window.onload = function () {
           meshes.push(child);
         }
       });
-  
+  		*/
       var head = meshes[0];
       var body = meshes[0];
   
