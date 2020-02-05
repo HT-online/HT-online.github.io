@@ -94,13 +94,13 @@ window.onload = function () {
     gltfLoader.load( 'destroyer/scene.gltf', function ( object ) {
   
       console.log(object);
-      scene.add( gltf.scene );
-
-      gltf.animations; // Array<THREE.AnimationClip>
-      gltf.scene; // THREE.Scene
-		  gltf.scenes; // Array<THREE.Scene>
-			gltf.cameras; // Array<THREE.Camera>
-			gltf.asset; // Object
+      scene.add( object.scene );
+/(
+      object.animations; // Array<THREE.AnimationClip>
+      object.scene; // THREE.Scene
+      object.scenes; // Array<THREE.Scene>
+      object.cameras; // Array<THREE.Camera>
+      object.asset; // Object*/
 			/*
       object.traverse( function ( child )
       {
