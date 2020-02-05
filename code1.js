@@ -103,7 +103,7 @@ window.onload = function () {
         }
       });
   
-      var head = meshes[6];
+      var head = meshes[4];
       var body = meshes[1];
   
       //head.position.y = 0;
