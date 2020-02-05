@@ -103,8 +103,8 @@ window.onload = function () {
         }
       });
   
-      var head = meshes[4];
-      var body = meshes[5];
+      var head = meshes[0];
+      var body = meshes[0];
   
       //head.position.y = 0;
       //body.position.y = -80;
@@ -123,7 +123,7 @@ window.onload = function () {
 	head.scale.set(100,100,100);
 	body.scale.set(100,100,100);
       scene.add(head);
-      scene.add(body);
+      //scene.add(body);
   
     }, onProgress, onError );
 
