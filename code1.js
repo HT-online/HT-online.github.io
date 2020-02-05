@@ -120,7 +120,7 @@ window.onload = function () {
   
       console.log('head', head);
   	//head.scale(new THREE.Vector3(10,10,10));
-	head.scale.set(2,2,2);
+	head.scale.set(100,100,100);
       scene.add(head);
       //scene.add(body);
   
