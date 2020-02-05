@@ -91,7 +91,7 @@ window.onload = function () {
   var meshes = [];
     var objLoader = new THREE.OBJLoader();
 
-    objLoader.load( 'obj/Handgun_obj.obj', function ( object ) {
+    objLoader.load( 'destroyer/scene.gltf', function ( object ) {
   
       console.log(object);
   
