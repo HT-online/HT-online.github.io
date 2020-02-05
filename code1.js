@@ -106,7 +106,7 @@ window.onload = function () {
       var head = meshes[0];
       //var body = meshes[1];
   
-      head.position.y = -80;
+      //head.position.y = 0;
       //body.position.y = -80;
   
       head.rotation.y = Math.PI/3;
