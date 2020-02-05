@@ -3,6 +3,23 @@
 // задаём размеры игрового поля
 let screenWidth = 1080;
 let screenHeight = 720;
+/* Функция для создания и возвращения куба */
+function createCube(scene, width, height, length, color, x, y, z, rotationY, rotationX, rotationZ, name) {
+    let cubeGeometry = new THREE.CubeGeometry(width, height, length);
+    let cubeMaterial = new THREE.MeshLambertMaterial({ color: color });
+    let cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
+    if (x !== undefined) {
+        cube.position.x = x;
+        cube.position.y = y;
+        cube.position.z = z;
+    }
+    if (rotationY !== undefined) cube.rotation.y = rotationY;
+    if (rotationX !== undefined) cube.rotation.x = rotationX;
+    if (rotationZ !== undefined) cube.rotation.z = rotationZ;
+    cube.name = name;
+    scene.add(cube);
+    return cube;
+}
 /* Функция для создания и возвращения точечного источника света */
 function createLight(scene, color, force) {
     let pointLight = new THREE.PointLight(color, force);
@@ -53,10 +70,10 @@ window.onload = function () {
   var textureHead = new THREE.Texture();
 
   var onProgress = function ( xhr ) {
-					if ( xhr.lengthComputable ) {
-						var percentComplete = xhr.loaded / xhr.total * 100;
-						console.log( Math.round(percentComplete, 2) + '% downloaded' );
-					}
+  	if ( xhr.lengthComputable ) {
+		var percentComplete = xhr.loaded / xhr.total * 100;
+		console.log( Math.round(percentComplete, 2) + '% downloaded' );
+	}
   };
 
   var onError = function ( xhr ) { };
@@ -107,6 +124,13 @@ window.onload = function () {
       scene.add(body);
   
     }, onProgress, onError );
+
+    // Создание куб (земля)
+    let ground = createCube(scene, 700, 1, 700, "#00AA00");
+    // Определение значения позиции куба (земли)
+    ground.position.x = 0;
+    ground.position.y = -10;
+    ground.position.z = 0;
 
     /*
     let manager = new THREE.LoadingManager();
