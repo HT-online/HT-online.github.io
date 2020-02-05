@@ -104,7 +104,7 @@ window.onload = function () {
       });
   
       var head = meshes[3];
-      var body = meshes[4];
+      var body = meshes[2];
   
       //head.position.y = 0;
       //body.position.y = -80;
@@ -121,7 +121,7 @@ window.onload = function () {
       console.log('head', head);
   	//head.scale(new THREE.Vector3(10,10,10));
 	head.scale.set(100,100,100);
-	body.scale.set(100,100,100)
+	body.scale.set(100,100,100);
       scene.add(head);
       scene.add(body);
   
