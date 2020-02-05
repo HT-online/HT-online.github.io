@@ -83,7 +83,7 @@ window.onload = function () {
     textureBody.needsUpdate = true;
   });*/
 
-  loader.load( 'textures/handgun_C.jpg', function ( image ) {
+  loader.load( 'textures/handgun_S.jpg', function ( image ) {
     textureHead.image = image;
     textureHead.needsUpdate = true;
   });
