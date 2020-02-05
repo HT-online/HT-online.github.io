@@ -155,8 +155,8 @@ window.onload = function () {
     /* Назначение порядка вращения камеры */
     camera.rotation.order = 'YXZ';
     // Начальные координаты камеры
-    camera.position.z = 400;
-    camera.position.x = 600;
+    camera.position.z = 100;
+    camera.position.x = 100;
     camera.position.y = 70;
     camera.lookAt(0,0,0);
     let q1 = createLight(scene, "#FFFFFF", 1);
