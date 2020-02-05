@@ -166,6 +166,13 @@ window.onload = function () {
     q1.position.z = camera.position.z;
     //camera.rotation.y = Math.PI;
 	
+    // Создание Солнца
+    let sun = createLight(scene, "#FFFFFF", 1);
+    // Координаты солнца
+    sun.position.x = 100;
+    sun.position.y = 250;
+    sun.position.z = 0;
+
     let w, a, s, d, bsp, sft;// Определение переменных для кнопок
     bsp = sft = w = a = s = d = false;// Инициализация переменных для кнопок
     /* Функции для опряделения нажатых кнопок */
