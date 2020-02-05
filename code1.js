@@ -132,6 +132,7 @@ window.onload = function () {
     ground.position.y = -10;
     ground.position.z = 0;
 
+	
     /*
     let manager = new THREE.LoadingManager();
     let loader = new THREE.ImageLoader(manager); 
@@ -165,6 +166,37 @@ window.onload = function () {
     q1.position.z = camera.position.z;
     //camera.rotation.y = Math.PI;
 	
+    let w, a, s, d, bsp, sft;// Определение переменных для кнопок
+    bsp = sft = w = a = s = d = false;// Инициализация переменных для кнопок
+    /* Функции для опряделения нажатых кнопок */
+    window.onkeydown = function (event) {
+        switch (event.keyCode) {
+            case 87: { w = true; break; }
+            case 65: { a = true; break; }
+            case 83: { s = true; break; }
+            case 68: { d = true; break; }
+            case 32: { bsp = true; break; }
+            case 16: { sft = true; break; }
+        }
+    }
+    window.onkeyup = function (event) {
+        switch (event.keyCode) {
+            case 87: { w = false; break; }
+            case 65: { a = false; break; }
+            case 83: { s = false; break; }
+            case 68: { d = false; break; }
+            case 32: { bsp = false; break; }
+            case 16: { sft = false; break; }
+        }
+    }
+
+    const rect = gameBox.getBoundingClientRect();// Рамка canvas
+    let mouseX = screenWidth / 2, mouseY = screenHeight / 2;// Начальные координаты курсора
+    /* Переназначение координат мыши относительно canvas при движении мыши */
+    gameBox.addEventListener('mousemove', e => {
+        mouseX = Math.min(e.clientX - rect.left, screenWidth);
+        mouseY = Math.min(e.clientY - rect.top, screenHeight);
+    });
     setInterval(function(){
 	    
         /* Источник света рядом с камерой */
