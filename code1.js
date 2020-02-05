@@ -77,16 +77,16 @@ window.onload = function () {
   };
 
   var onError = function ( xhr ) { };
-
-  loader.load( 'textures/handgun_C.jpg', function ( image ) {
+/*
+  loader.load( 'model/BODY diff MAP.jpg', function ( image ) {
     textureBody.image = image;
     textureBody.needsUpdate = true;
-  });
-/*
-  loader.load( 'model/HEAD diff MAP.jpg', function ( image ) {
+  });*/
+
+  loader.load( 'textures/handgun_C.jpg', function ( image ) {
     textureHead.image = image;
     textureHead.needsUpdate = true;
-  });*/
+  });
 
   var meshes = [];
     var objLoader = new THREE.OBJLoader();
