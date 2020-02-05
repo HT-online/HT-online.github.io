@@ -77,11 +77,11 @@ window.onload = function () {
   };
 
   var onError = function ( xhr ) { };
-/*
-  loader.load( 'model/BODY diff MAP.jpg', function ( image ) {
+
+  loader.load( 'textures/handgun_C.jpg', function ( image ) {
     textureBody.image = image;
     textureBody.needsUpdate = true;
-  });*/
+  });
 
   loader.load( 'textures/handgun_C.jpg', function ( image ) {
     textureHead.image = image;
@@ -104,25 +104,26 @@ window.onload = function () {
       });
   
       var head = meshes[3];
-      //var body = meshes[1];
+      var body = meshes[4];
   
       //head.position.y = 0;
       //body.position.y = -80;
   
       head.rotation.y = Math.PI/3;
-      //body.rotation.y = Math.PI/3;
+      body.rotation.y = Math.PI/3;
   
-      //var mapHeightBody = new THREE.TextureLoader().load( "model/BODY bump MAP.jpg" );
+      var mapHeightBody = new THREE.TextureLoader().load( "textures/handgun_S.jpg" );
       var mapHeightHead = new THREE.TextureLoader().load( "textures/handgun_S.jpg" );
   
       head.material = new THREE.MeshPhongMaterial({map: textureHead, specular: 0xfceed2, bumpMap: mapHeightHead, bumpScale: 0.4, shininess: 25});
-      //body.material = new THREE.MeshPhongMaterial({map: textureBody, specular: 0xfceed2, bumpMap: mapHeightBody, bumpScale: 0.4, shininess: 25});
+      body.material = new THREE.MeshPhongMaterial({map: textureBody, specular: 0xfceed2, bumpMap: mapHeightBody, bumpScale: 0.4, shininess: 25});
   
       console.log('head', head);
   	//head.scale(new THREE.Vector3(10,10,10));
 	head.scale.set(100,100,100);
+	body.scale.set(100,100,100)
       scene.add(head);
-      //scene.add(body);
+      scene.add(body);
   
     }, onProgress, onError );
 
