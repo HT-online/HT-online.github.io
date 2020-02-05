@@ -206,6 +206,11 @@ window.onload = function () {
         q1.position.y = camera.position.y;
         q1.position.z = camera.position.z;
 
+	camera.rotation.x += Math.PI / 10000 * Math.pow((screenHeight / 2 - mouseY) / 120, 5);// вращение камеры с помощью мыши относительно внутренней оси X
+        camera.rotation.y += Math.PI / 10000 * Math.pow((screenWidth / 2 - mouseX) / 120 / screenWidth * screenHeight, 5);// вращение камеры с помощью мыши относительно внутренней оси Y
+        if(camera.rotation.x > Math.PI/2)camera.rotation.x = Math.PI/2;
+        if(camera.rotation.x < -Math.PI/2)camera.rotation.x = -Math.PI/2;
+	renderer.render(scene, camera);
         /* Движение камеры учитывая вращение камеры относительно внутренней оси Y */
         if (w) {
             camera.position.x -= 1 * mult * Math.sin(camera.rotation.y);
@@ -226,12 +231,5 @@ window.onload = function () {
         /* Движение камеры вверх/вниз НЕ учитывая вращение камеры относительно внутренней оси Y*/
         if (bsp) camera.position.y += 1 * mult;
         if (sft) camera.position.y -= 1 * mult;
-	    
-	camera.rotation.x += Math.PI / 10000 * Math.pow((screenHeight / 2 - mouseY) / 120, 5);// вращение камеры с помощью мыши относительно внутренней оси X
-        camera.rotation.y += Math.PI / 10000 * Math.pow((screenWidth / 2 - mouseX) / 120 / screenWidth * screenHeight, 5);// вращение камеры с помощью мыши относительно внутренней оси Y
-        if(camera.rotation.x > Math.PI/2)camera.rotation.x = Math.PI/2;
-        if(camera.rotation.x < -Math.PI/2)camera.rotation.x = -Math.PI/2;
-    },0);
-
-    renderer.render(scene, camera);
+    },30);
 }
