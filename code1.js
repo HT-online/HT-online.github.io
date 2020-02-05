@@ -36,8 +36,43 @@ window.onload = function () {
     objLoader.load('boat.obj',function(object){
         console.log(object);
     });*/
+    var objLoader = new THREE.OBJLoader();
 
+    objLoader.load( 'model/bb8.obj', function ( object ) {
+  
+      console.log(object);
+  
+      object.traverse( function ( child )
+      {
+        if ( child instanceof THREE.Mesh )
+        {
+          meshes.push(child);
+        }
+      });
+  
+      var head = meshes[0];
+      var body = meshes[1];
+  
+      head.position.y = -80;
+      body.position.y = -80;
+  
+      head.rotation.y = Math.PI/3;
+      body.rotation.y = Math.PI/3;
+  
+      var mapHeightBody = new THREE.TextureLoader().load( "model/BODY bump MAP.jpg" );
+      var mapHeightHead = new THREE.TextureLoader().load( "model/HEAD bump MAP.jpg" );
+  
+      head.material = new THREE.MeshPhongMaterial({map: textureHead, specular: 0xfceed2, bumpMap: mapHeightHead, bumpScale: 0.4, shininess: 25});
+      body.material = new THREE.MeshPhongMaterial({map: textureBody, specular: 0xfceed2, bumpMap: mapHeightBody, bumpScale: 0.4, shininess: 25});
+  
+      console.log('head', head);
+  
+      scene.add(head);
+      scene.add(body);
+  
+    }, onProgress, onError );
 
+    /*
     let manager = new THREE.LoadingManager();
     let loader = new THREE.ImageLoader(manager); 
     let TextureBody = new THREE.Texture();
@@ -46,15 +81,14 @@ window.onload = function () {
     objLoader.load('Boat.obj',function(object){
         console.log(object);
         object.traverse(function(child){
-            if(child instanceof THREE.Mesh){
-                console.log("child instanceof THREE.Mesh!!!");
+            if(child instanceof THREE.Mesh)
                 meshes.push(child);
-            }
         });
     });
     let pirateShip = meshes[0];
     scene.add(pirateShip);
     pirateShip.scale(0.001,0.001,0.001);
+    */
 
     let camera = new THREE.PerspectiveCamera(100, screenWidth / screenHeight, 0.1, 1000);
     /* Назначение порядка вращения камеры */
