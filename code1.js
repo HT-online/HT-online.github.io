@@ -197,6 +197,8 @@ window.onload = function () {
         mouseX = Math.min(e.clientX - rect.left, screenWidth);
         mouseY = Math.min(e.clientY - rect.top, screenHeight);
     });
+    let mult = 2;// Мультипликатор скорости движения камеры
+	
     setInterval(function(){
 	    
         /* Источник света рядом с камерой */
