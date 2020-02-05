@@ -103,8 +103,8 @@ window.onload = function () {
         }
       });
   
-      var head = meshes[3];
-      var body = meshes[2];
+      var head = meshes[4];
+      var body = meshes[5];
   
       //head.position.y = 0;
       //body.position.y = -80;
