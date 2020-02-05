@@ -127,10 +127,11 @@ window.onload = function () {
 
     // Создание куб (земля)
     //let ground = createCube(scene, 700, 1, 700, "#00AA00");
+    let ground = createCube(scene, 7, 1, 7, "#00AA00");
     // Определение значения позиции куба (земли)
-    //ground.position.x = 0;
-    //ground.position.y = -10;
-    //ground.position.z = 0;
+    ground.position.x = -10;
+    ground.position.y = -10;
+    ground.position.z = 0;
 
 	
     /*
