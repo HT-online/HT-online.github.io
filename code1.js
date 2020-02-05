@@ -119,7 +119,8 @@ window.onload = function () {
       //body.material = new THREE.MeshPhongMaterial({map: textureBody, specular: 0xfceed2, bumpMap: mapHeightBody, bumpScale: 0.4, shininess: 25});
   
       console.log('head', head);
-  	head.scale(new THREE.Vector3(10,10,10));
+  	//head.scale(new THREE.Vector3(10,10,10));
+	head.scale.set(2,2,2);
       scene.add(head);
       //scene.add(body);
   
