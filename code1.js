@@ -89,9 +89,9 @@ window.onload = function () {
   });
 
   var meshes = [];
-    var objLoader = new THREE.OBJLoader();
+    var gltfLoader = new THREE.GLTFLoader();
 
-    objLoader.load( 'destroyer/scene.gltf', function ( object ) {
+    gltfLoader.load( 'destroyer/scene.gltf', function ( object ) {
   
       console.log(object);
   
