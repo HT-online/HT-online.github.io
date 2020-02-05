@@ -3,7 +3,12 @@
 // задаём размеры игрового поля
 let screenWidth = 1080;
 let screenHeight = 720;
-
+/* Функция для создания и возвращения точечного источника света */
+function createLight(scene, color, force) {
+    let pointLight = new THREE.PointLight(color, force);
+    scene.add(pointLight);
+    return pointLight;
+}
 window.onload = function () {
     /* Создание сцены */
     let scene = new THREE.Scene();
