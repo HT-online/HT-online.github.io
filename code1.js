@@ -95,7 +95,7 @@ window.onload = function () {
   
       console.log(object);
       scene.add( object.scene );
-/(
+/*
       object.animations; // Array<THREE.AnimationClip>
       object.scene; // THREE.Scene
       object.scenes; // Array<THREE.Scene>
