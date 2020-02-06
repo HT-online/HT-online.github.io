@@ -127,13 +127,15 @@ window.onload = function () {
   });
 
   let meshes = [];
+  let destroyer;
   let gltfLoader = new THREE.GLTFLoader();
 
   gltfLoader.load( 'destroyer/scene.gltf', function ( object ) {
     //console.log("Object 'ship' loaded");
     //console.log(object);
+		destroyer = object;
     scene.add( object.scene );
-	object.scale(100,100,100);
+		object.scale.set(100,100,100);
 /*
       object.animations; // Array<THREE.AnimationClip>
       object.scene; // THREE.Scene
@@ -326,6 +328,8 @@ window.onload = function () {
         //console.log(Math.asin(60/(y1-y2)));
         //console.log(y1+" "+y2+" "+shipRotation);
 
+				destroyer.position.y=(y1+y2)/2;
+				destroyer.rotation.x=shipRotation;
         scene.getObjectByName("ship").position.y=(y1+y2)/2;
         scene.getObjectByName("ship").rotation.x=shipRotation;
 
