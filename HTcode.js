@@ -110,7 +110,7 @@ window.onload = function () {
     let onProgress = function ( xhr ) {
   	if ( xhr.lengthComputable ) {
 		var percentComplete = xhr.loaded / xhr.total * 100;
-		console.log( Math.round(percentComplete, 2) + '% downloaded' );
+		//console.log( Math.round(percentComplete, 2) + '% downloaded' );
 	}
   };
 
@@ -130,8 +130,8 @@ window.onload = function () {
   let gltfLoader = new THREE.GLTFLoader();
 
   gltfLoader.load( 'destroyer/scene.gltf', function ( object ) {
-    console.log("Object 'ship' loaded");
-    console.log(object);
+    //console.log("Object 'ship' loaded");
+    //console.log(object);
     scene.add( object.scene );
 	object.scale(100,100,100);
 /*
@@ -164,7 +164,7 @@ window.onload = function () {
     head.material = new THREE.MeshPhongMaterial({map: textureHead, specular: 0xfceed2, bumpMap: mapHeightHead, bumpScale: 0.4, shininess: 25});
     body.material = new THREE.MeshPhongMaterial({map: textureBody, specular: 0xfceed2, bumpMap: mapHeightBody, bumpScale: 0.4, shininess: 25});
   
-    console.log('head', head);
+    //console.log('head', head);
   	//head.scale(new THREE.Vector3(10,10,10));
 	head.scale.set(100,100,100);
 	body.scale.set(100,100,100);
@@ -310,7 +310,7 @@ window.onload = function () {
         let waterSurface = new THREE.Mesh( waterGeometry, waterMaterial );
         waterSurface.name = "waterSurface";
         waterGeometry.computeFaceNormals();
-        //scene.add( waterSurface );
+        scene.add( waterSurface );
 
         //new THREE.Face3((i*iMax+j)*6+0, (i*iMax+j)*6+1, (i*iMax+j)*6+2),
         //let pos1 = scene.getObjectByName("waterSurface").geometry.vertices[(shipPosition.z-1)/polygonSize*600+shipPosition.x/polygonSize*60];
@@ -339,9 +339,11 @@ window.onload = function () {
         //scene.remove( pos1 );
         //scene.remove( pos2 );
         // clean up
-	    waterSurface.dispose();
+	    //waterSurface.dispose();
+		renderer.renderLists.dispose();
         waterGeometry.dispose();
         waterMaterial.dispose();
+		scene.remove(waterSurface);
         //texture.dispose();
 
         /* Источник света рядом с камерой */
