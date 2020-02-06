@@ -108,11 +108,11 @@ window.onload = function () {
     let textureHead = new THREE.Texture();
 
     let onProgress = function ( xhr ) {
-  	if ( xhr.lengthComputable ) {
-		var percentComplete = xhr.loaded / xhr.total * 100;
-		//console.log( Math.round(percentComplete, 2) + '% downloaded' );
-	}
-  };
+  		if ( xhr.lengthComputable ) {
+				var percentComplete = xhr.loaded / xhr.total * 100;
+				//console.log( Math.round(percentComplete, 2) + '% downloaded' );
+			}
+  	};
 
   let onError = function ( xhr ) { };
 
@@ -133,7 +133,7 @@ window.onload = function () {
   gltfLoader.load( 'destroyer/scene.gltf', function ( object ) {
     //console.log("Object 'ship' loaded");
     //console.log(object);
-		destroyer = object;
+		destroyer = object.scene;
     scene.add( object.scene );
 		object.scale.set(100,100,100);
 /*
@@ -143,14 +143,13 @@ window.onload = function () {
       object.cameras; // Array<THREE.Camera>
       object.asset; // Object*/
 			/*
-      object.traverse( function ( child )
-      {
-        if ( child instanceof THREE.Mesh )
+    object.traverse( function ( child ){
+      if ( child instanceof THREE.Mesh )
         {
-          meshes.push(child);
+         meshes.push(child);
         }
-   });
-  		*/
+    });
+      */
     let head = meshes[0];
     let body = meshes[0];
   
@@ -168,10 +167,10 @@ window.onload = function () {
   
     //console.log('head', head);
   	//head.scale(new THREE.Vector3(10,10,10));
-	head.scale.set(100,100,100);
-	body.scale.set(100,100,100);
-      scene.add(head);
-      //scene.add(body);
+		head.scale.set(100,100,100);
+		body.scale.set(100,100,100);
+    scene.add(head);
+    //scene.add(body);
   
   }, onProgress, onError );
     
