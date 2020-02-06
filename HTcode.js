@@ -172,7 +172,7 @@ window.onload = function () {
   
   }, onProgress, onError );
     
-    pirateShip.scale = new THREE.vector3(0.001,0.001,0.001);
+    //pirateShip.scale = new THREE.vector3(0.001,0.001,0.001);
     
     
     let w, a, s, d, bsp, sft;// Определение переменных для кнопок
