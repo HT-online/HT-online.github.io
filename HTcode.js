@@ -339,6 +339,7 @@ window.onload = function () {
         //scene.remove( pos1 );
         //scene.remove( pos2 );
         // clean up
+	    waterSurface.dispose();
         waterGeometry.dispose();
         waterMaterial.dispose();
         //texture.dispose();
