@@ -257,6 +257,13 @@ window.onload = function () {
     let fps=0;
     let shipRotation = 0;
     let y1,y2;
+	
+	  let waterSurface = new THREE.Mesh();// = new THREE.Mesh( waterGeometry, waterMaterial );
+    waterSurface.name = "waterSurface";
+		
+		let waterMaterial = new THREE.MeshLambertMaterial( { color: 0x0000dd } );
+		waterSurface.material = waterMaterial;
+		scene.add( waterSurface );
     /* Анимация мира */
     setInterval(function () {
         
@@ -298,20 +305,19 @@ window.onload = function () {
             lastheight2 = height2;
             lastheight1 = Math.sin((incX-1)/sinMulti);
         }
+				waterGeometry.computeFaceNormals();
+				waterSurface.geometry = waterGeometry;
+				
         let now = Date.now();
         let dt = now - lastUpdate;
         lastUpdate = now;
-
-
-        
-
         //console.log(dt);
+			
+			
         //let texture = new THREE.CanvasTexture( createImage() );
-        let waterMaterial = new THREE.MeshLambertMaterial( { color: 0x0000dd } );
-        let waterSurface = new THREE.Mesh( waterGeometry, waterMaterial );
-        waterSurface.name = "waterSurface";
-        waterGeometry.computeFaceNormals();
-        scene.add( waterSurface );
+        
+        
+        
 
         //new THREE.Face3((i*iMax+j)*6+0, (i*iMax+j)*6+1, (i*iMax+j)*6+2),
         //let pos1 = scene.getObjectByName("waterSurface").geometry.vertices[(shipPosition.z-1)/polygonSize*600+shipPosition.x/polygonSize*60];
@@ -341,14 +347,11 @@ window.onload = function () {
         //scene.remove( waterSurface );
         //scene.remove( pos1 );
         //scene.remove( pos2 );
-        // clean up
-	    //waterSurface.dispose();
-		
-        waterGeometry.dispose();
-        waterMaterial.dispose();
-				scene.remove(waterSurface);
-	    	renderer.renderLists.dispose();
+        //clean up
+	    	//waterSurface.dispose();
 				renderer.dispose();
+				waterSurface.geometry = null;
+        waterGeometry.dispose();
         //texture.dispose();
 
         /* Источник света рядом с камерой */
