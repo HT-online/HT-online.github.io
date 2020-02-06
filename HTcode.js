@@ -332,9 +332,9 @@ window.onload = function () {
         //console.log((60/(y1-y2)));
         //console.log(Math.asin(60/(y1-y2)));
         //console.log(y1+" "+y2+" "+shipRotation);
-				destroyer.position.x = shipPosition.x;
+				destroyer.position.x = 500;//shipPosition.x;
 				destroyer.position.y = (y1+y2)/2;
-				destroyer.position.z = shipPosition.z;
+				destroyer.position.z = 500;//shipPosition.z;
 				destroyer.rotation.x = shipRotation;
         scene.getObjectByName("ship").position.y = (y1+y2)/2;
         scene.getObjectByName("ship").rotation.x = shipRotation;
