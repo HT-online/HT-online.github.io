@@ -135,7 +135,7 @@ window.onload = function () {
     //console.log(object);
 		destroyer = object.scene;
     scene.add( object.scene );
-		object.scene.scale.set(100,100,100);
+		object.scene.scale.set(10,10,10);
 /*
       object.animations; // Array<THREE.AnimationClip>
       object.scene; // THREE.Scene
@@ -332,11 +332,12 @@ window.onload = function () {
         //console.log((60/(y1-y2)));
         //console.log(Math.asin(60/(y1-y2)));
         //console.log(y1+" "+y2+" "+shipRotation);
-
-				destroyer.position.y=(y1+y2)/2;
-				destroyer.rotation.x=shipRotation;
-        scene.getObjectByName("ship").position.y=(y1+y2)/2;
-        scene.getObjectByName("ship").rotation.x=shipRotation;
+				destroyer.position.x = shipPosition.x;
+				destroyer.position.y = (y1+y2)/2;
+				destroyer.position.z = shipPosition.z;
+				destroyer.rotation.x = shipRotation;
+        scene.getObjectByName("ship").position.y = (y1+y2)/2;
+        scene.getObjectByName("ship").rotation.x = shipRotation;
 
         camera.rotation.x += Math.PI / 10000 * Math.pow((screenHeight / 2 - mouseY) / 120, 5);// вращение камеры с помощью мыши относительно внутренней оси X
         camera.rotation.y += Math.PI / 10000 * Math.pow((screenWidth / 2 - mouseX) / 120 / screenWidth * screenHeight, 5);// вращение камеры с помощью мыши относительно внутренней оси Y
