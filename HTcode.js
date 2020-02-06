@@ -90,11 +90,6 @@ function createLight(scene, color, force) {
 }
 
 window.onload = function () {
-    //var THREE = window.THREE;// = require('three');
-    //require('three/examples/js/loaders/GLTFLoader');
-
-
-
     /* Создание сцены */
     let scene = new THREE.Scene();
     /* Создание визуализатора */
@@ -102,35 +97,84 @@ window.onload = function () {
     renderer.setClearColor("#0000FF");
     renderer.setSize(screenWidth, screenHeight);
     document.getElementById("gameBox").append(renderer.domElement);
-/*
-    let loader = new THREE.GLTFLoader();
-    loader.load( 'scene.gltf', function ( gltf ) {
-        scene.add( gltf.scene );
-    }, undefined, function ( error ) {
-        console.error( error );
-    } );*/
-    let manager = new THREE.LoadingManager();
-    let loader = new THREE.ImageLoader(manager); 
-    let TextureBody = new THREE.Texture();
-    /*
-    loader.load('boat.obj', function(image){
-        TextureBody.image = image;
-        TextureBody.needUpdate = true;
-    });*/
-
-    let meshes = [];
-    let objLoader = new THREE.OBJLoader();
-    objLoader.load('Boat.obj',function(object){
-        console.log(object);
-        object.traverse(function(child){
-            if(child instanceof THREE.Mesh)
-                meshes.push(child);
-        });
-    });
-    let pirateShip = meshes[0];
     
-    scene.add(pirateShip);
+    
+    let manager = new THREE.LoadingManager();
+    let loader  = new THREE.ImageLoader( manager );
+
+    manager.onProgress = function ( item, loaded, total ) {	};
+
+    let textureBody = new THREE.Texture();
+    let textureHead = new THREE.Texture();
+
+    let onProgress = function ( xhr ) {
+  	if ( xhr.lengthComputable ) {
+		var percentComplete = xhr.loaded / xhr.total * 100;
+		console.log( Math.round(percentComplete, 2) + '% downloaded' );
+	}
+  };
+
+  let onError = function ( xhr ) { };
+
+  loader.load( 'textures/handgun_C.jpg', function ( image ) {
+    textureBody.image = image;
+    textureBody.needsUpdate = true;
+  });
+
+  loader.load( 'textures/handgun_C.jpg', function ( image ) {
+    textureHead.image = image;
+    textureHead.needsUpdate = true;
+  });
+
+  let meshes = [];
+  let gltfLoader = new THREE.GLTFLoader();
+
+  gltfLoader.load( 'destroyer/scene.gltf', function ( object ) {
+  
+    console.log(object);
+    scene.add( object.scene );
+/*
+      object.animations; // Array<THREE.AnimationClip>
+      object.scene; // THREE.Scene
+      object.scenes; // Array<THREE.Scene>
+      object.cameras; // Array<THREE.Camera>
+      object.asset; // Object*/
+			/*
+      object.traverse( function ( child )
+      {
+        if ( child instanceof THREE.Mesh )
+        {
+          meshes.push(child);
+        }
+   });
+  		*/
+    let head = meshes[0];
+    let body = meshes[0];
+  
+    //head.position.y = 0;
+    //body.position.y = -80;
+  
+    head.rotation.y = Math.PI/3;
+    body.rotation.y = Math.PI/3;
+  
+    let mapHeightBody = new THREE.TextureLoader().load( "textures/handgun_S.jpg" );
+    let mapHeightHead = new THREE.TextureLoader().load( "textures/handgun_S.jpg" );
+  
+    head.material = new THREE.MeshPhongMaterial({map: textureHead, specular: 0xfceed2, bumpMap: mapHeightHead, bumpScale: 0.4, shininess: 25});
+    body.material = new THREE.MeshPhongMaterial({map: textureBody, specular: 0xfceed2, bumpMap: mapHeightBody, bumpScale: 0.4, shininess: 25});
+  
+    console.log('head', head);
+  	//head.scale(new THREE.Vector3(10,10,10));
+	head.scale.set(100,100,100);
+	body.scale.set(100,100,100);
+      scene.add(head);
+      //scene.add(body);
+  
+  }, onProgress, onError );
+    
     pirateShip.scale = new THREE.vector3(0.001,0.001,0.001);
+    
+    
     let w, a, s, d, bsp, sft;// Определение переменных для кнопок
     bsp = sft = w = a = s = d = false;// Инициализация переменных для кнопок
 
