@@ -211,7 +211,7 @@ window.onload = function () {
 
     let shipPosition = new THREE.Vector3(500,0,500);
     createCube(scene,20,10,60,"#00FF00",shipPosition.x,shipPosition.y,shipPosition.z,0,0,0,"ship");
-    //createCube(scene,6,100,6,"#00FF00",0,0,0,0,0,0);
+    createCube(scene,6,100,6,"#00FF00",0,0,0,0,0,0);
 
     /* Функции для опряделения нажатых кнопок */
     window.onkeydown = function (event) {
