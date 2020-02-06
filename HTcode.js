@@ -135,7 +135,7 @@ window.onload = function () {
     //console.log(object);
 		destroyer = object.scene;
     scene.add( object.scene );
-		object.scale.set(100,100,100);
+		object.scene.scale.set(100,100,100);
 /*
       object.animations; // Array<THREE.AnimationClip>
       object.scene; // THREE.Scene
@@ -343,10 +343,12 @@ window.onload = function () {
         //scene.remove( pos2 );
         // clean up
 	    //waterSurface.dispose();
-		renderer.renderLists.dispose();
+		
         waterGeometry.dispose();
         waterMaterial.dispose();
-		scene.remove(waterSurface);
+				scene.remove(waterSurface);
+	    	renderer.renderLists.dispose();
+				renderer.dispose();
         //texture.dispose();
 
         /* Источник света рядом с камерой */
