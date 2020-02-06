@@ -130,7 +130,7 @@ window.onload = function () {
   let gltfLoader = new THREE.GLTFLoader();
 
   gltfLoader.load( 'destroyer/scene.gltf', function ( object ) {
-  
+    console.log("Object 'ship' loaded");
     console.log(object);
     scene.add( object.scene );
 	object.scale(100,100,100);
