@@ -309,7 +309,7 @@ window.onload = function () {
 				waterSurface.geometry = waterGeometry;
     /* Анимация мира */
     setInterval(function () {
-        /*
+        
         let waterGeometry = new THREE.Geometry();
 			
         let speedX=0.1;//Math.random()*0.5;
@@ -352,7 +352,7 @@ window.onload = function () {
         }
 				waterGeometry.computeFaceNormals();
 				waterSurface.geometry = waterGeometry;
-				*/
+				
         let now = Date.now();
         let dt = now - lastUpdate;
         lastUpdate = now;
@@ -377,6 +377,8 @@ window.onload = function () {
         //console.log((60/(y1-y2)));
         //console.log(Math.asin(60/(y1-y2)));
         //console.log(y1+" "+y2+" "+shipRotation);
+			
+			
 				destroyer.position.x = 500;//shipPosition.x;
 				destroyer.position.y = (y1+y2)/2+20;
 				destroyer.position.z = 500;//shipPosition.z;
@@ -390,6 +392,8 @@ window.onload = function () {
         if(camera.rotation.x < -Math.PI/2)camera.rotation.x = -Math.PI/2;
         renderer.render(scene, camera);
 
+				
+				waterSurface.geometry.dispose();
         //scene.remove( waterSurface );
         //scene.remove( pos1 );
         //scene.remove( pos2 );
