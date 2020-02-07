@@ -381,7 +381,7 @@ window.onload = function () {
 			
 				destroyer.position.x = 500;//shipPosition.x;
 				destroyer.position.y = (y1+y2)/2+40;
-				destroyer.position.z = 450;//shipPosition.z;
+				destroyer.position.z = 520;//shipPosition.z;
 				destroyer.rotation.x = shipRotation;
         scene.getObjectByName("ship").position.y = (y1+y2)/2;
         scene.getObjectByName("ship").rotation.x = shipRotation;
