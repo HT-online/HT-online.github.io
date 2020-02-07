@@ -135,7 +135,7 @@ window.onload = function () {
     //console.log(object);
 		destroyer = object.scene;
     scene.add( object.scene );
-		object.scene.scale.set(10,10,10);
+		object.scene.scale.set(100,100,100);
 /*
       object.animations; // Array<THREE.AnimationClip>
       object.scene; // THREE.Scene
