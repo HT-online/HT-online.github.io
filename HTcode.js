@@ -372,7 +372,7 @@ window.onload = function () {
         //let y1 = scene.getObjectByName("waterSurface").geometry.vertices[(shipPosition.z-10)/polygonSize+shipPosition.x/polygonSize*6].y;
         //let y2 = scene.getObjectByName("waterSurface").geometry.vertices[(shipPosition.z+10)/polygonSize+shipPosition.x/polygonSize*6].y;
 
-        shipRotation = Math.asin(((y1-y2)/30)%Math.PI);
+        shipRotation = Math.asin(((y1-y2)/40)%Math.PI);
 
         //console.log((60/(y1-y2)));
         //console.log(Math.asin(60/(y1-y2)));
