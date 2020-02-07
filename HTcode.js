@@ -135,7 +135,7 @@ window.onload = function () {
     //console.log(object);
 		destroyer = object.scene;
     scene.add( object.scene );
-		object.scene.scale.set(100,100,100);
+		object.scene.scale.set(80,80,80);
 /*
       object.animations; // Array<THREE.AnimationClip>
       object.scene; // THREE.Scene
@@ -380,7 +380,7 @@ window.onload = function () {
 			
 			
 				destroyer.position.x = 500;//shipPosition.x;
-				destroyer.position.y = (y1+y2)/2+20;
+				destroyer.position.y = (y1+y2)/2+40;
 				destroyer.position.z = 500;//shipPosition.z;
 				destroyer.rotation.x = shipRotation;
         scene.getObjectByName("ship").position.y = (y1+y2)/2;
