@@ -330,8 +330,8 @@ window.onload = function () {
         		lastheight2 = height2;
         		lastheight1 = Math.sin((incX-1)/sinMulti);
       		}
-      		waterGeometryChunks[i,j].computeFaceNormals();
-					waterMeshChunks[i,j].geometry = waterGeometryChunks[i,j];
+      		waterGeometryChunks[a,b].computeFaceNormals();
+					waterMeshChunks[a,b].geometry = waterGeometryChunks[a,b];
 				}
 			}
       
