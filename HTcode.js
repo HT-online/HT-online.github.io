@@ -210,9 +210,7 @@ window.onload = function () {
     sun.position.y = 250;
     sun.position.z = 0;
 
-    let shipPosition = new THREE.Vector3(500,0,500);
-    createCube(scene,20,10,60,"#00FF00",shipPosition.x,shipPosition.y,shipPosition.z,0,0,0,"ship");
-    createCube(scene,6,100,6,"#00FF00",0,0,0,0,0,0);
+
 
     /* Функции для опряделения нажатых кнопок */
     window.onkeydown = function (event) {
@@ -256,6 +254,10 @@ window.onload = function () {
     let polygonSize = 10;
     let fps=0;
     let shipRotation = new THREE.Vector3(0,0,0);
+    let shipPosition = new THREE.Vector3(500,0,500);
+    let realShipPosition = new THREE.Vector3(500+20*Math.sin(shipRotation.y),0,500+20*Math.cos(shipRotation.y));
+    createCube(scene,20,10,60,"#00FF00",shipPosition.x,shipPosition.y,shipPosition.z,0,0,0,"ship");
+    createCube(scene,6,100,6,"#00FF00",0,0,0,0,0,0);
     let y1,y2;
 	
 	  let waterSurface = new THREE.Mesh();// = new THREE.Mesh( waterGeometry, waterMaterial );
@@ -278,12 +280,10 @@ window.onload = function () {
         for(let j=0; j<jMax; j++){
             height1 = Math.sin((j+incX)/sinMulti);
             if(i*polygonSize==shipPosition.x&&j*polygonSize==shipPosition.z-30){
-                //console.log("eq1");
                 y1 = lastheight1*lastheight2*waveMulti;
                 scene.add(createCube(scene,10,100,10,"#00ff00",i*polygonSize,y1,j*polygonSize,0,0,0));
             }
             if(i*polygonSize==shipPosition.x&&j*polygonSize==shipPosition.z+30){
-                //console.log("eq2");
                 y2 = lastheight1*lastheight2*waveMulti;
                 scene.add(createCube(scene,10,100,10,"#00ff00",i*polygonSize,y2,j*polygonSize,0,0,0));
             }
@@ -387,7 +387,9 @@ window.onload = function () {
         //console.log(Math.asin(60/(y1-y2)));
         //console.log(y1+" "+y2+" "+shipRotation);
 			
-			
+        realShipPosition.x = shipPosition.x + 20*Math.sin(shipRotation.y);
+        realShipPosition.y = shipPosition.y
+        realShipPosition.z = shipPosition.z + 20*Math.cos(shipRotation.y);
 				destroyer.position.x = shipPosition.x;
 				destroyer.position.y = (y1+y2)/2+40;
 				destroyer.position.z = shipPosition.z+20;
