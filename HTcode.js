@@ -386,13 +386,14 @@ window.onload = function () {
         //console.log((60/(y1-y2)));
         //console.log(Math.asin(60/(y1-y2)));
         //console.log(y1+" "+y2+" "+shipRotation);
-			
+      
+			  shipPosition.y = (y1+y2)/2+50;
         realShipPosition.x = shipPosition.x + 20*Math.sin(shipRotation.y);
-        realShipPosition.y = shipPosition.y
+        realShipPosition.y = shipPosition.y;
         realShipPosition.z = shipPosition.z + 20*Math.cos(shipRotation.y);
-				destroyer.position.x = shipPosition.x;
-				destroyer.position.y = (y1+y2)/2+40;
-				destroyer.position.z = shipPosition.z+20;
+				destroyer.position.x = realShipPosition.x;
+				destroyer.position.y = realShipPosition.y;
+				destroyer.position.z = realShipPosition.z;
 				destroyer.rotation.x = shipRotation.x;
 				destroyer.rotation.y = shipRotation.y;
         scene.getObjectByName("ship").position.y = (y1+y2)/2;
