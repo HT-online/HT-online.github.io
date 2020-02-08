@@ -385,7 +385,7 @@ window.onload = function () {
 				if(sft){
         if (w) {
             camera.position.x -= 1 * mult * Math.sin(camera.rotation.y);
-						camera.position.y -= 1 * mult * Math.cos(camera.rotation.x);
+						camera.position.y += 1 * mult * Math.sin(camera.rotation.x);
             camera.position.z -= 1 * mult * Math.cos(camera.rotation.y);
         }
         if (a) {
@@ -394,8 +394,8 @@ window.onload = function () {
         }
         if (s) {
             camera.position.x += 1 * mult * Math.sin(camera.rotation.y);
+            camera.position.y -= 1 * mult * Math.sin(camera.rotation.x);
             camera.position.z += 1 * mult * Math.cos(camera.rotation.y);
-						camera.position.y += 1 * mult * Math.cos(camera.rotation.x);
         }
         if (d) {
             camera.position.x += 1 * mult * Math.cos(camera.rotation.y);
