@@ -134,6 +134,7 @@ window.onload = function () {
     //console.log("Object 'ship' loaded");
     //console.log(object);
 		destroyer = object.scene;
+    destroyer.rotation.order = 'YXZ';
     scene.add( object.scene );
 		object.scene.scale.set(80,80,80);
 /*
