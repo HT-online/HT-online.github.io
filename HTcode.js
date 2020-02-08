@@ -437,20 +437,11 @@ window.onload = function () {
         //if (sft) camera.position.y -= 1 * mult;
 				}else{
 				if (w) {
+						if (a)shipRotation.y+=0.05;
+					  if (d)shipRotation.y-=0.1;
             shipPosition.x += 1 * mult * Math.sin(shipRotation.y);
             shipPosition.z += 1 * mult * Math.cos(shipRotation.y);
-        }
-        if (a) {
-						shipRotation.y+=0.1;
-        }
-        if (s) {
-            shipPosition.x -= 1 * mult * Math.sin(shipRotation.y);
-            shipPosition.z -= 1 * mult * Math.cos(shipRotation.y);
-        }
-        if (d) {
-						shipRotation.y-=0.1;
-        }
-				}
+        }}
         /*
         sunAngle += 0.001;
         sun.position.x = 200 * Math.sin(sunAngle);
