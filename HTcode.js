@@ -434,24 +434,26 @@ window.onload = function () {
         /* Движение камеры вверх/вниз НЕ учитывая вращение камеры относительно внутренней оси Y*/
         //if (bsp) camera.position.y += 1 * mult;
         //if (sft) camera.position.y -= 1 * mult;
-				}else
+				}else{
 				if (w) {
-            shipPosition.x -= 1 * mult * Math.sin(shipRotation);
-            shipPosition.z -= 1 * mult * Math.cos(shipRotation);
-        }
-        if (a) {
-            shipPosition.x -= 1 * mult * Math.cos(shipRotation);
-            shipPosition.z += 1 * mult * Math.sin(shipRotation);
-        }
-        if (s) {
             shipPosition.x += 1 * mult * Math.sin(shipRotation);
             shipPosition.z += 1 * mult * Math.cos(shipRotation);
         }
-        if (d) {
-            shipPosition.x += 1 * mult * Math.cos(shipRotation);
-            shipPosition.z -= 1 * mult * Math.sin(shipRotation);
+        if (a) {
+						shipRotation.y+=0.1;
+            //shipPosition.x -= 1 * mult * Math.cos(shipRotation);
+            //shipPosition.z += 1 * mult * Math.sin(shipRotation);
         }
-					
+        if (s) {
+            shipPosition.x -= 1 * mult * Math.sin(shipRotation);
+            shipPosition.z -= 1 * mult * Math.cos(shipRotation);
+        }
+        if (d) {
+						shipRotation.y-=0.1;
+            //shipPosition.x += 1 * mult * Math.cos(shipRotation);
+            //shipPosition.z -= 1 * mult * Math.sin(shipRotation);
+        }
+				}
         /*
         sunAngle += 0.001;
         sun.position.x = 200 * Math.sin(sunAngle);
