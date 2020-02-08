@@ -325,7 +325,7 @@ window.onload = function () {
             height2 = Math.sin((i+incZ)/sinMulti);
         for(let j=0; j<jMax; j++){
             height1 = Math.sin((j+incX)/sinMulti);
-            if(i*polygonSize - shipPosition.x < polygonSize && j*polygonSize - shipPosition.z - 30*Math.cos(shipRotation.y) < polygonSize){
+            if(i*polygonSize - shipPosition.x - 30*Math.sin(shipRotation.y) < polygonSize && j*polygonSize - shipPosition.z - 30*Math.cos(shipRotation.y) < polygonSize){
               //console.log("eq1");
               y1 = lastheight1*lastheight2*waveMulti;
 							CUBE1.position.x = i*polygonSize;
@@ -333,7 +333,7 @@ window.onload = function () {
 							CUBE1.position.z = j*polygonSize - 30*Math.cos(shipRotation.y);
               //scene.add(createCube(scene,10,100,10,"#00ff00",i*polygonSize,y1,j*polygonSize,0,0,0));
             }
-            if(i*polygonSize - shipPosition.x < polygonSize && j*polygonSize - shipPosition.z + 30*Math.cos(shipRotation.y) < polygonSize){
+            if(i*polygonSize - shipPosition.x + 30*Math.sin(shipRotation.y) < polygonSize && j*polygonSize - shipPosition.z + 30*Math.cos(shipRotation.y) < polygonSize){
               //console.log("eq2");
               y2 = lastheight1*lastheight2*waveMulti;
 							CUBE2.position.x = i*polygonSize;
