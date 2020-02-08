@@ -436,20 +436,20 @@ window.onload = function () {
         //if (sft) camera.position.y -= 1 * mult;
 				}else
 				if (w) {
-            shipPosition.position.x -= 1 * mult * Math.sin(shipRotation.rotation.y);
-            shipPosition.position.z -= 1 * mult * Math.cos(shipRotation.rotation.y);
+            shipPosition.x -= 1 * mult * Math.sin(shipRotation.rotation.y);
+            shipPosition.z -= 1 * mult * Math.cos(shipRotation.rotation.y);
         }
         if (a) {
-            shipPosition.position.x -= 1 * mult * Math.cos(shipRotation.rotation.y);
-            shipPosition.position.z += 1 * mult * Math.sin(shipRotation.rotation.y);
+            shipPosition.x -= 1 * mult * Math.cos(shipRotation.rotation.y);
+            shipPosition.z += 1 * mult * Math.sin(shipRotation.rotation.y);
         }
         if (s) {
-            shipPosition.position.x += 1 * mult * Math.sin(shipRotation.rotation.y);
-            shipPosition.position.z += 1 * mult * Math.cos(shipRotation.rotation.y);
+            shipPosition.x += 1 * mult * Math.sin(shipRotation.rotation.y);
+            shipPosition.z += 1 * mult * Math.cos(shipRotation.rotation.y);
         }
         if (d) {
-            shipPosition.position.x += 1 * mult * Math.cos(shipRotation.rotation.y);
-            shipPosition.position.z -= 1 * mult * Math.sin(shipRotation.rotation.y);
+            shipPosition.x += 1 * mult * Math.cos(shipRotation.rotation.y);
+            shipPosition.z -= 1 * mult * Math.sin(shipRotation.rotation.y);
         }
 					
         /*
