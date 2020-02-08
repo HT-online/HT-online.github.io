@@ -382,7 +382,7 @@ window.onload = function () {
         //let y1 = scene.getObjectByName("waterSurface").geometry.vertices[(shipPosition.z-10)/polygonSize+shipPosition.x/polygonSize*6].y;
         //let y2 = scene.getObjectByName("waterSurface").geometry.vertices[(shipPosition.z+10)/polygonSize+shipPosition.x/polygonSize*6].y;
 
-        shipRotation.x = Math.asin(((y1-y2)/40)%Math.PI);
+        shipRotation.x = -Math.asin(((y1-y2)/40)%Math.PI);
 
         //console.log((60/(y1-y2)));
         //console.log(Math.asin(60/(y1-y2)));
@@ -397,8 +397,8 @@ window.onload = function () {
 				destroyer.position.z = realShipPosition.z;
 				destroyer.rotation.x = shipRotation.x;
 				destroyer.rotation.y = shipRotation.y;
-        scene.getObjectByName("ship").position.y = (y1+y2)/2;
-        scene.getObjectByName("ship").rotation.x = shipRotation.x;
+        //scene.getObjectByName("ship").position.y = (y1+y2)/2;
+        //scene.getObjectByName("ship").rotation.x = shipRotation.x;
 
         camera.rotation.x += Math.PI / 10000 * Math.pow((screenHeight / 2 - mouseY) / 120, 5);// вращение камеры с помощью мыши относительно внутренней оси X
         camera.rotation.y += Math.PI / 10000 * Math.pow((screenWidth / 2 - mouseX) / 120 / screenWidth * screenHeight, 5);// вращение камеры с помощью мыши относительно внутренней оси Y
