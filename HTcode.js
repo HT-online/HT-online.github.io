@@ -392,7 +392,7 @@ window.onload = function () {
         if(camera.rotation.x < -Math.PI/2)camera.rotation.x = -Math.PI/2;
         renderer.render(scene, camera);
 
-				
+				waterGeometry.dispose();
 				waterSurface.geometry.dispose();
         //scene.remove( waterSurface );
         //scene.remove( pos1 );
