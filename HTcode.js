@@ -250,7 +250,7 @@ window.onload = function () {
     let lastUpdate=Date.now();
     let mult = 2;// Мультипликатор скорости движения камеры
     let sunAngle = 0;
-    let incX=0,incZ=0,waveMulti=10,sinMulti=3;
+    let incX=0,incZ=0,waveMulti=10,sinMulti=1;
     let iMax=100,jMax=100;
     let polygonSize = 10;
     let fps=0;
@@ -268,49 +268,9 @@ window.onload = function () {
 		waterSurface.material = waterMaterial;
 		scene.add( waterSurface );
 	
-	      let waterGeometry = new THREE.Geometry();
-			
-        let speedX=0.1;//Math.random()*0.5;
-        let speedZ=speedX;//Math.random()*0.5;
-        incX+=speedX;
-        incZ+=speedZ;
-			
-        let height1=0, lastheight1=Math.sin((incX-1)/sinMulti), height2=0, lastheight2=Math.sin((incZ-1)/sinMulti);
-        for(let i=0; i<iMax; i++){
-            height2 = Math.sin((i+incZ)/sinMulti);
-        for(let j=0; j<jMax; j++){
-            height1 = Math.sin((j+incX)/sinMulti);
-            if(i*polygonSize==shipPosition.x&&j*polygonSize==shipPosition.z-30){
-                y1 = lastheight1*lastheight2*waveMulti;
-                scene.add(createCube(scene,10,100,10,"#00ff00",i*polygonSize,y1,j*polygonSize,0,0,0));
-            }
-            if(i*polygonSize==shipPosition.x&&j*polygonSize==shipPosition.z+30){
-                y2 = lastheight1*lastheight2*waveMulti;
-                scene.add(createCube(scene,10,100,10,"#00ff00",i*polygonSize,y2,j*polygonSize,0,0,0));
-            }
-            waterGeometry.vertices.push(
-                new THREE.Vector3(polygonSize*i, lastheight1*lastheight2*waveMulti, polygonSize*j),
-                new THREE.Vector3(polygonSize*i, height1*lastheight2*waveMulti, polygonSize*(j+1)),
-                new THREE.Vector3(polygonSize*(i+1), height1*height2*waveMulti, polygonSize*(j+1)),
-
-                new THREE.Vector3(polygonSize*i, lastheight1*lastheight2*waveMulti, polygonSize*j),
-                new THREE.Vector3(polygonSize*(i+1), lastheight1*height2*waveMulti, polygonSize*j),
-                new THREE.Vector3(polygonSize*(i+1), height1*height2*waveMulti, polygonSize*(j+1))
-            );
-            waterGeometry.faces.push(
-                new THREE.Face3((i*iMax+j)*6+0, (i*iMax+j)*6+1, (i*iMax+j)*6+2),
-                new THREE.Face3((i*iMax+j)*6+3, (i*iMax+j)*6+5, (i*iMax+j)*6+4)
-            );
-            lastheight1 = height1;
-        }
-            lastheight2 = height2;
-            lastheight1 = Math.sin((incX-1)/sinMulti);
-        }
-				waterGeometry.computeFaceNormals();
-				waterSurface.geometry = waterGeometry;
-	
 		let CUBE1 = createCube(scene,10,100,10,"#00FF00",0,0,0,0,0,0);
 		let CUBE2 = createCube(scene,10,100,10,"#FF0000",0,0,0,0,0,0);
+  
     /* Анимация мира */
     setInterval(function () {
         
@@ -382,13 +342,14 @@ window.onload = function () {
         //let y1 = scene.getObjectByName("waterSurface").geometry.vertices[(shipPosition.z-10)/polygonSize+shipPosition.x/polygonSize*6].y;
         //let y2 = scene.getObjectByName("waterSurface").geometry.vertices[(shipPosition.z+10)/polygonSize+shipPosition.x/polygonSize*6].y;
 
-        shipRotation.x = -Math.asin(((y1-y2)/40)%Math.PI);
+        
 
         //console.log((60/(y1-y2)));
         //console.log(Math.asin(60/(y1-y2)));
         //console.log(y1+" "+y2+" "+shipRotation);
-      
+        shipRotation.x = -Math.asin(((y1-y2)/40)%Math.PI);
 			  shipPosition.y = (y1+y2)/2+50;
+      
         realShipPosition.x = shipPosition.x + 20*Math.sin(shipRotation.y);
         realShipPosition.y = shipPosition.y;
         realShipPosition.z = shipPosition.z + 20*Math.cos(shipRotation.y);
