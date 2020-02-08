@@ -252,7 +252,7 @@ window.onload = function () {
     let sunAngle = 0;
     let incX=0,incZ=0, waveMulti=10;// Грубо говоря амплитуда
     let sinMulti=1;// Грубо говоря скорость
-    let iMax=100,jMax=100;
+    let iMax=10,jMax=10;
     let polygonSize = 10;
     let fps=0;
     let shipRotation = new THREE.Vector3(0,0,0);
