@@ -328,13 +328,17 @@ window.onload = function () {
             if(i*polygonSize - shipPosition.x < polygonSize && j*polygonSize - shipPosition.z - 30*Math.cos(shipRotation.y) < polygonSize){
               //console.log("eq1");
               y1 = lastheight1*lastheight2*waveMulti;
-							CUBE1.position = new THREE.Vector3(i*polygonSize,j*polygonSize - 30*Math.cos(shipRotation.y),y1);
+							CUBE1.position.x = i*polygonSize;
+							CUBE1.position.y = y1;
+							CUBE1.position.z = j*polygonSize - 30*Math.cos(shipRotation.y);
               //scene.add(createCube(scene,10,100,10,"#00ff00",i*polygonSize,y1,j*polygonSize,0,0,0));
             }
             if(i*polygonSize - shipPosition.x < polygonSize && j*polygonSize - shipPosition.z + 30*Math.cos(shipRotation.y) < polygonSize){
               //console.log("eq2");
               y2 = lastheight1*lastheight2*waveMulti;
-							CUBE1.position = new THREE.Vector3(i*polygonSize,j*polygonSize + 30*Math.cos(shipRotation.y),y2);
+							CUBE2.position.x = i*polygonSize;
+							CUBE2.position.y = y2;
+							CUBE2.position.z = j*polygonSize + 30*Math.cos(shipRotation.y);
               //scene.add(createCube(scene,10,100,10,"#00ff00",i*polygonSize,y2,j*polygonSize,0,0,0));
             }
             waterGeometry.vertices.push(
