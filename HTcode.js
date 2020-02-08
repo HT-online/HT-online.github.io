@@ -438,7 +438,7 @@ window.onload = function () {
 				}else{
 				if (w) {
 						if (a)shipRotation.y+=0.05;
-					  if (d)shipRotation.y-=0.1;
+					  if (d)shipRotation.y-=0.05;
             shipPosition.x += 1 * mult * Math.sin(shipRotation.y);
             shipPosition.z += 1 * mult * Math.cos(shipRotation.y);
         }}
