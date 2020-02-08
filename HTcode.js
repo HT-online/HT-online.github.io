@@ -3,7 +3,6 @@
 // задаём размеры игрового поля
 let screenWidth = 1080;
 let screenHeight = 720;
-let pivotPoints = [[], []];
 
 /* Функция для приблизительного сравнивания чисел с плавающей точкой */
 function fequal(a, b) {
@@ -247,12 +246,14 @@ window.onload = function () {
     // Example text options : {'font' : 'helvetiker','weight' : 'normal', 'style' : 'normal','size' : 100,'curveSegments' : 300};
 
     
+		
     let lastUpdate=Date.now();
     let mult = 2;// Мультипликатор скорости движения камеры
     let sunAngle = 0;
-    let incX=0,incZ=0,waveMulti=100,sinMulti=1;
+    let incX=0,incZ=0, waveMulti=10;// Грубо говоря амплитуда
+    let sinMulti=1;// Грубо говоря скорость
     let iMax=100,jMax=100;
-    let polygonSize = 50;
+    let polygonSize = 10;
     let fps=0;
     let shipRotation = new THREE.Vector3(0,0,0);
     let shipPosition = new THREE.Vector3(500,0,500);
@@ -260,6 +261,7 @@ window.onload = function () {
     createCube(scene,20,10,60,"#00FF00",shipPosition.x,shipPosition.y,shipPosition.z,0,0,0,"ship");
     createCube(scene,6,100,6,"#00FF00",0,0,0,0,0,0);
     let y1,y2;
+	
 	
 	  let waterSurface = new THREE.Mesh();// = new THREE.Mesh( waterGeometry, waterMaterial );
     waterSurface.name = "waterSurface";
@@ -271,11 +273,72 @@ window.onload = function () {
 		let CUBE1 = createCube(scene,10,100,10,"#00FF00",0,0,0,0,0,0);
 		let CUBE2 = createCube(scene,10,100,10,"#FF0000",0,0,0,0,0,0);
   
+		let waterMeshChunks = [[],[]];
+		let waterGeometryChunks = [[],[]];
+	
+		for(let i=0;i<8;i++)
+			for(let j=0;j<8;j++){
+				waterMeshChunks[i,j] = new THREE.Mesh();
+				waterMeshChunks[i,j].material = waterMaterial;
+				scene.add( waterMeshChunks[i,j] );
+			}
+	
     /* Анимация мира */
     setInterval(function () {
-        
-        let waterGeometry = new THREE.Geometry();
 			
+      let speedX=0.1;//Math.random()*0.5;
+      let speedZ=speedX;//Math.random()*0.5;
+      incX+=speedX;
+      incZ+=speedZ;
+			for(let a=0;a<8;a++){
+				for(let b=0;b<8;b++){
+					let waterGeometryChunks[a,b] = new THREE.Geometry();
+					
+					let height1=0, lastheight1=Math.sin((incX-1)/sinMulti), height2=0, lastheight2=Math.sin((incZ-1)/sinMulti);
+      		for(let i=0; i<iMax; i++){
+        		height2 = Math.sin((i+incZ)/sinMulti);
+        		for(let j=0; j<jMax; j++){
+          		height1 = Math.sin((j+incX)/sinMulti);
+							/*
+            	if(i*polygonSize - shipPosition.x - 30*Math.sin(shipRotation.y) < polygonSize && j*polygonSize - shipPosition.z - 30*Math.cos(shipRotation.y) < polygonSize){
+              	y1 = lastheight1*lastheight2*waveMulti;
+								CUBE1.position.x = i*polygonSize + 30*Math.sin(shipRotation.y);
+								CUBE1.position.y = y1;
+								CUBE1.position.z = j*polygonSize + 30*Math.cos(shipRotation.y);
+            	}
+            	if(i*polygonSize - shipPosition.x + 30*Math.sin(shipRotation.y) < polygonSize && j*polygonSize - shipPosition.z + 30*Math.cos(shipRotation.y) < polygonSize){
+              	y2 = lastheight1*lastheight2*waveMulti;
+								CUBE2.position.x = i*polygonSize - 30*Math.sin(shipRotation.y);
+								CUBE2.position.y = y2;
+								CUBE2.position.z = j*polygonSize - 30*Math.cos(shipRotation.y);
+            	}*/
+          		waterGeometry.vertices.push(
+            		new THREE.Vector3(polygonSize*(i+a*iMax), lastheight1*lastheight2*waveMulti, polygonSize*(j+b*jMax)),
+            		new THREE.Vector3(polygonSize*(i+a*iMax), height1*lastheight2*waveMulti, polygonSize*(j+1+b*jMax)),
+            		new THREE.Vector3(polygonSize*(i+1+a*iMax), height1*height2*waveMulti, polygonSize*(j+1+b*jMax)),
+
+            		new THREE.Vector3(polygonSize*(i+a*iMax), lastheight1*lastheight2*waveMulti, polygonSize*(j+b*jMax)),
+            		new THREE.Vector3(polygonSize*(i+1+a*iMax), lastheight1*height2*waveMulti, polygonSize*(j+1+b*jMax)),
+            		new THREE.Vector3(polygonSize*(i+1+a*iMax), height1*height2*waveMulti, polygonSize*(j+1+b*jMax))
+          		);
+          		waterGeometry.faces.push(
+            		new THREE.Face3((i*iMax+j)*6+0, (i*iMax+j)*6+1, (i*iMax+j)*6+2),
+            		new THREE.Face3((i*iMax+j)*6+3, (i*iMax+j)*6+5, (i*iMax+j)*6+4)
+          		);
+          		lastheight1 = height1;
+        		}
+        		lastheight2 = height2;
+        		lastheight1 = Math.sin((incX-1)/sinMulti);
+      		}
+      		waterGeometryChunks[i,j].computeFaceNormals();
+					waterMeshChunks[i,j].geometry = waterGeometryChunks[i,j];
+				}
+			}
+      
+			
+        /*
+        let waterGeometry = new THREE.Geometry();
+				
         let speedX=0.1;//Math.random()*0.5;
         let speedZ=speedX;//Math.random()*0.5;
         incX+=speedX;
@@ -286,7 +349,7 @@ window.onload = function () {
             height2 = Math.sin((i+incZ)/sinMulti);
         for(let j=0; j<jMax; j++){
             height1 = Math.sin((j+incX)/sinMulti);
-		/*
+		
             if(i*polygonSize - shipPosition.x - 30*Math.sin(shipRotation.y) < polygonSize && j*polygonSize - shipPosition.z - 30*Math.cos(shipRotation.y) < polygonSize){
               y1 = lastheight1*lastheight2*waveMulti;
 							CUBE1.position.x = i*polygonSize + 30*Math.sin(shipRotation.y);
@@ -298,7 +361,7 @@ window.onload = function () {
 							CUBE2.position.x = i*polygonSize - 30*Math.sin(shipRotation.y);
 							CUBE2.position.y = y2;
 							CUBE2.position.z = j*polygonSize - 30*Math.cos(shipRotation.y);
-            }*/
+            }
             waterGeometry.vertices.push(
                 new THREE.Vector3(polygonSize*i, lastheight1*lastheight2*waveMulti, polygonSize*j),
                 new THREE.Vector3(polygonSize*i, height1*lastheight2*waveMulti, polygonSize*(j+1)),
@@ -319,7 +382,8 @@ window.onload = function () {
         }
 				waterGeometry.computeFaceNormals();
 				waterSurface.geometry = waterGeometry;
-				
+				*/
+			
         let now = Date.now();
         let dt = now - lastUpdate;
         lastUpdate = now;
@@ -364,8 +428,13 @@ window.onload = function () {
         if(camera.rotation.x < -Math.PI/2)camera.rotation.x = -Math.PI/2;
         renderer.render(scene, camera);
 
-				waterGeometry.dispose();
-				waterSurface.geometry.dispose();
+				for(let i=0;i<8;i++)
+					for(let j=0;j<8;j++){
+						waterGeometryChunks[i,j].dispose();
+						waterMeshChunks[i,j].geometry.dispose();
+					}
+				//waterGeometry.dispose();
+				//waterSurface.geometry.dispose();
         //scene.remove( waterSurface );
         //scene.remove( pos1 );
         //scene.remove( pos2 );
