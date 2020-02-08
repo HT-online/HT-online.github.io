@@ -308,8 +308,8 @@ window.onload = function () {
 				waterGeometry.computeFaceNormals();
 				waterSurface.geometry = waterGeometry;
 	
-
-		
+		CUBE1 = createCube(scene,10,100,10,"#00FF00",0,0,0,0,0,0);
+		CUBE2 = createCube(scene,10,100,10,"#00FF00",0,0,0,0,0,0);
     /* Анимация мира */
     setInterval(function () {
         
@@ -326,14 +326,16 @@ window.onload = function () {
         for(let j=0; j<jMax; j++){
             height1 = Math.sin((j+incX)/sinMulti);
             if(i*polygonSize - shipPosition.x < polygonSize && j*polygonSize - shipPosition.z - 30*Math.cos(shipRotation.y) < polygonSize){
-                //console.log("eq1");
-                y1 = lastheight1*lastheight2*waveMulti;
-                //scene.add(createCube(scene,10,100,10,"#00ff00",i*polygonSize,y1,j*polygonSize,0,0,0));
+              //console.log("eq1");
+              y1 = lastheight1*lastheight2*waveMulti;
+							CUBE1.position = new THREE.Vector3(i*polygonSize,j*polygonSize - 30*Math.cos(shipRotation.y),y1);
+              //scene.add(createCube(scene,10,100,10,"#00ff00",i*polygonSize,y1,j*polygonSize,0,0,0));
             }
             if(i*polygonSize - shipPosition.x < polygonSize && j*polygonSize - shipPosition.z + 30*Math.cos(shipRotation.y) < polygonSize){
-                //console.log("eq2");
-                y2 = lastheight1*lastheight2*waveMulti;
-                //scene.add(createCube(scene,10,100,10,"#00ff00",i*polygonSize,y2,j*polygonSize,0,0,0));
+              //console.log("eq2");
+              y2 = lastheight1*lastheight2*waveMulti;
+							CUBE1.position = new THREE.Vector3(i*polygonSize,j*polygonSize + 30*Math.cos(shipRotation.y),y2);
+              //scene.add(createCube(scene,10,100,10,"#00ff00",i*polygonSize,y2,j*polygonSize,0,0,0));
             }
             waterGeometry.vertices.push(
                 new THREE.Vector3(polygonSize*i, lastheight1*lastheight2*waveMulti, polygonSize*j),
