@@ -286,6 +286,7 @@ window.onload = function () {
             height2 = Math.sin((i+incZ)/sinMulti);
         for(let j=0; j<jMax; j++){
             height1 = Math.sin((j+incX)/sinMulti);
+		/*
             if(i*polygonSize - shipPosition.x - 30*Math.sin(shipRotation.y) < polygonSize && j*polygonSize - shipPosition.z - 30*Math.cos(shipRotation.y) < polygonSize){
               y1 = lastheight1*lastheight2*waveMulti;
 							CUBE1.position.x = i*polygonSize + 30*Math.sin(shipRotation.y);
@@ -297,7 +298,7 @@ window.onload = function () {
 							CUBE2.position.x = i*polygonSize - 30*Math.sin(shipRotation.y);
 							CUBE2.position.y = y2;
 							CUBE2.position.z = j*polygonSize - 30*Math.cos(shipRotation.y);
-            }
+            }*/
             waterGeometry.vertices.push(
                 new THREE.Vector3(polygonSize*i, lastheight1*lastheight2*waveMulti, polygonSize*j),
                 new THREE.Vector3(polygonSize*i, height1*lastheight2*waveMulti, polygonSize*(j+1)),
