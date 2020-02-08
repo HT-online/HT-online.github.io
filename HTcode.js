@@ -255,7 +255,7 @@ window.onload = function () {
     let iMax=100,jMax=100;
     let polygonSize = 10;
     let fps=0;
-    let shipRotation = 0;
+    let shipRotation = new THREE.Vector3(0,0,0);
     let y1,y2;
 	
 	  let waterSurface = new THREE.Mesh();// = new THREE.Mesh( waterGeometry, waterMaterial );
@@ -375,7 +375,7 @@ window.onload = function () {
         //let y1 = scene.getObjectByName("waterSurface").geometry.vertices[(shipPosition.z-10)/polygonSize+shipPosition.x/polygonSize*6].y;
         //let y2 = scene.getObjectByName("waterSurface").geometry.vertices[(shipPosition.z+10)/polygonSize+shipPosition.x/polygonSize*6].y;
 
-        shipRotation = Math.asin(((y1-y2)/40)%Math.PI);
+        shipRotation.x = Math.asin(((y1-y2)/40)%Math.PI);
 
         //console.log((60/(y1-y2)));
         //console.log(Math.asin(60/(y1-y2)));
@@ -385,9 +385,10 @@ window.onload = function () {
 				destroyer.position.x = shipPosition.x;
 				destroyer.position.y = (y1+y2)/2+40;
 				destroyer.position.z = shipPosition.z+20;
-				destroyer.rotation.x = shipRotation;
+				destroyer.rotation.x = shipRotation.x;
+				destroyer.rotation.y = shipRotation.y;
         scene.getObjectByName("ship").position.y = (y1+y2)/2;
-        scene.getObjectByName("ship").rotation.x = shipRotation;
+        scene.getObjectByName("ship").rotation.x = shipRotation.x;
 
         camera.rotation.x += Math.PI / 10000 * Math.pow((screenHeight / 2 - mouseY) / 120, 5);// вращение камеры с помощью мыши относительно внутренней оси X
         camera.rotation.y += Math.PI / 10000 * Math.pow((screenWidth / 2 - mouseX) / 120 / screenWidth * screenHeight, 5);// вращение камеры с помощью мыши относительно внутренней оси Y
@@ -436,22 +437,18 @@ window.onload = function () {
         //if (sft) camera.position.y -= 1 * mult;
 				}else{
 				if (w) {
-            shipPosition.x += 1 * mult * Math.sin(shipRotation);
-            shipPosition.z += 1 * mult * Math.cos(shipRotation);
+            shipPosition.x += 1 * mult * Math.sin(shipRotation.y);
+            shipPosition.z += 1 * mult * Math.cos(shipRotation.y);
         }
         if (a) {
 						shipRotation.y+=0.1;
-            //shipPosition.x -= 1 * mult * Math.cos(shipRotation);
-            //shipPosition.z += 1 * mult * Math.sin(shipRotation);
         }
         if (s) {
-            shipPosition.x -= 1 * mult * Math.sin(shipRotation);
-            shipPosition.z -= 1 * mult * Math.cos(shipRotation);
+            shipPosition.x -= 1 * mult * Math.sin(shipRotation.y);
+            shipPosition.z -= 1 * mult * Math.cos(shipRotation.y);
         }
         if (d) {
 						shipRotation.y-=0.1;
-            //shipPosition.x += 1 * mult * Math.cos(shipRotation);
-            //shipPosition.z -= 1 * mult * Math.sin(shipRotation);
         }
 				}
         /*
