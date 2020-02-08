@@ -382,9 +382,9 @@ window.onload = function () {
         //console.log(y1+" "+y2+" "+shipRotation);
 			
 			
-				destroyer.position.x = 500;//shipPosition.x;
+				destroyer.position.x = shipPosition.x;
 				destroyer.position.y = (y1+y2)/2+40;
-				destroyer.position.z = 520;//shipPosition.z;
+				destroyer.position.z = shipPosition.z+20;
 				destroyer.rotation.x = shipRotation;
         scene.getObjectByName("ship").position.y = (y1+y2)/2;
         scene.getObjectByName("ship").rotation.x = shipRotation;
@@ -436,20 +436,20 @@ window.onload = function () {
         //if (sft) camera.position.y -= 1 * mult;
 				}else
 				if (w) {
-            shipPosition.position.x -= 1 * mult * Math.sin(camera.rotation.y);
-            shipPosition.position.z -= 1 * mult * Math.cos(camera.rotation.y);
+            shipPosition.position.x -= 1 * mult * Math.sin(shipRotation.rotation.y);
+            shipPosition.position.z -= 1 * mult * Math.cos(shipRotation.rotation.y);
         }
         if (a) {
-            shipPosition.position.x -= 1 * mult * Math.cos(camera.rotation.y);
-            shipPosition.position.z += 1 * mult * Math.sin(camera.rotation.y);
+            shipPosition.position.x -= 1 * mult * Math.cos(shipRotation.rotation.y);
+            shipPosition.position.z += 1 * mult * Math.sin(shipRotation.rotation.y);
         }
         if (s) {
-            shipPosition.position.x += 1 * mult * Math.sin(camera.rotation.y);
-            shipPosition.position.z += 1 * mult * Math.cos(camera.rotation.y);
+            shipPosition.position.x += 1 * mult * Math.sin(shipRotation.rotation.y);
+            shipPosition.position.z += 1 * mult * Math.cos(shipRotation.rotation.y);
         }
         if (d) {
-            shipPosition.position.x += 1 * mult * Math.cos(camera.rotation.y);
-            shipPosition.position.z -= 1 * mult * Math.sin(camera.rotation.y);
+            shipPosition.position.x += 1 * mult * Math.cos(shipRotation.rotation.y);
+            shipPosition.position.z -= 1 * mult * Math.sin(shipRotation.rotation.y);
         }
 					
         /*
