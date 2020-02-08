@@ -265,7 +265,7 @@ window.onload = function () {
 		waterSurface.material = waterMaterial;
 		scene.add( waterSurface );
 	
-	        let waterGeometry = new THREE.Geometry();
+	      let waterGeometry = new THREE.Geometry();
 			
         let speedX=0.1;//Math.random()*0.5;
         let speedZ=speedX;//Math.random()*0.5;
@@ -325,12 +325,12 @@ window.onload = function () {
             if(i*polygonSize==shipPosition.x&&j*polygonSize==shipPosition.z-30){
                 //console.log("eq1");
                 y1 = lastheight1*lastheight2*waveMulti;
-                scene.add(createCube(scene,10,100,10,"#00ff00",i*polygonSize,y1,j*polygonSize,0,0,0));
+                //scene.add(createCube(scene,10,100,10,"#00ff00",i*polygonSize,y1,j*polygonSize,0,0,0));
             }
             if(i*polygonSize==shipPosition.x&&j*polygonSize==shipPosition.z+30){
                 //console.log("eq2");
                 y2 = lastheight1*lastheight2*waveMulti;
-                scene.add(createCube(scene,10,100,10,"#00ff00",i*polygonSize,y2,j*polygonSize,0,0,0));
+                //scene.add(createCube(scene,10,100,10,"#00ff00",i*polygonSize,y2,j*polygonSize,0,0,0));
             }
             waterGeometry.vertices.push(
                 new THREE.Vector3(polygonSize*i, lastheight1*lastheight2*waveMulti, polygonSize*j),
