@@ -301,7 +301,7 @@ window.onload = function () {
           		height1 = Math.sin((j+incX)/sinMulti);
 							/*
             	if(i*polygonSize - shipPosition.x - 30*Math.sin(shipRotation.y) < polygonSize && j*polygonSize - shipPosition.z - 30*Math.cos(shipRotation.y) < polygonSize){
-              	y1 = lastheight1*lastheight2*waveMulti;
+              	y1 = lastheight1*lastheightw2*waveMulti;
 								CUBE1.position.x = i*polygonSize + 30*Math.sin(shipRotation.y);
 								CUBE1.position.y = y1;
 								CUBE1.position.z = j*polygonSize + 30*Math.cos(shipRotation.y);
@@ -312,6 +312,16 @@ window.onload = function () {
 								CUBE2.position.y = y2;
 								CUBE2.position.z = j*polygonSize - 30*Math.cos(shipRotation.y);
             	}*/
+              waterGeometryChunks[a,b].vertices.push(
+            		new THREE.Vector3(polygonSize*(i+a*iMax), 0, polygonSize*(j+b*jMax)),
+            		new THREE.Vector3(polygonSize*(i+a*iMax), 0, polygonSize*(j+1+b*jMax)),
+            		new THREE.Vector3(polygonSize*(i+1+a*iMax), 0, polygonSize*(j+1+b*jMax)),
+
+            		new THREE.Vector3(polygonSize*(i+a*iMax), 0, polygonSize*(j+b*jMax)),
+            		new THREE.Vector3(polygonSize*(i+1+a*iMax), 0, polygonSize*(j+1+b*jMax)),
+            		new THREE.Vector3(polygonSize*(i+1+a*iMax), 0, polygonSize*(j+1+b*jMax))
+          		);
+              /*
           		waterGeometryChunks[a,b].vertices.push(
             		new THREE.Vector3(polygonSize*(i+a*iMax), lastheight1*lastheight2*waveMulti, polygonSize*(j+b*jMax)),
             		new THREE.Vector3(polygonSize*(i+a*iMax), height1*lastheight2*waveMulti, polygonSize*(j+1+b*jMax)),
@@ -320,7 +330,7 @@ window.onload = function () {
             		new THREE.Vector3(polygonSize*(i+a*iMax), lastheight1*lastheight2*waveMulti, polygonSize*(j+b*jMax)),
             		new THREE.Vector3(polygonSize*(i+1+a*iMax), lastheight1*height2*waveMulti, polygonSize*(j+1+b*jMax)),
             		new THREE.Vector3(polygonSize*(i+1+a*iMax), height1*height2*waveMulti, polygonSize*(j+1+b*jMax))
-          		);
+          		);*/
           		waterGeometryChunks[a,b].faces.push(
             		new THREE.Face3((i*iMax+j)*6+0, (i*iMax+j)*6+1, (i*iMax+j)*6+2),
             		new THREE.Face3((i*iMax+j)*6+3, (i*iMax+j)*6+5, (i*iMax+j)*6+4)
