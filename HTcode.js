@@ -308,8 +308,8 @@ window.onload = function () {
 				waterGeometry.computeFaceNormals();
 				waterSurface.geometry = waterGeometry;
 	
-		CUBE1 = createCube(scene,10,100,10,"#00FF00",0,0,0,0,0,0);
-		CUBE2 = createCube(scene,10,100,10,"#00FF00",0,0,0,0,0,0);
+		let CUBE1 = createCube(scene,10,100,10,"#00FF00",0,0,0,0,0,0);
+		let CUBE2 = createCube(scene,10,100,10,"#00FF00",0,0,0,0,0,0);
     /* Анимация мира */
     setInterval(function () {
         
