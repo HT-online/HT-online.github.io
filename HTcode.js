@@ -250,9 +250,9 @@ window.onload = function () {
     let lastUpdate=Date.now();
     let mult = 2;// Мультипликатор скорости движения камеры
     let sunAngle = 0;
-    let incX=0,incZ=0,waveMulti=10,sinMulti=10;
+    let incX=0,incZ=0,waveMulti=10,sinMulti=7;
     let iMax=100,jMax=100;
-    let polygonSize = 10;
+    let polygonSize = 5;
     let fps=0;
     let shipRotation = new THREE.Vector3(0,0,0);
     let shipPosition = new THREE.Vector3(500,0,500);
