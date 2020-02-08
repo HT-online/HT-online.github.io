@@ -250,7 +250,7 @@ window.onload = function () {
     let lastUpdate=Date.now();
     let mult = 2;// Мультипликатор скорости движения камеры
     let sunAngle = 0;
-    let incX=0,incZ=0,waveMulti=10,sinMulti=7;
+    let incX=0,incZ=0,waveMulti=10,sinMulti=20;
     let iMax=100,jMax=100;
     let polygonSize = 50;
     let fps=0;
