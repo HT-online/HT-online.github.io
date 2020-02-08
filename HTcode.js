@@ -190,7 +190,7 @@ window.onload = function () {
     camera.position.y = 70;
     camera.rotation.y = Math.PI;
     // Создание источника свята рядом с камерой
-    let q1 = createLight(scene, "#FFFFFF", 0);
+    let q1 = createLight(scene, "#FFFFFF", 1);
     // Координаты солнца
     q1.position.x = camera.position.x;
     q1.position.y = camera.position.z;
@@ -307,6 +307,9 @@ window.onload = function () {
         }
 				waterGeometry.computeFaceNormals();
 				waterSurface.geometry = waterGeometry;
+	
+
+		
     /* Анимация мира */
     setInterval(function () {
         
@@ -410,6 +413,8 @@ window.onload = function () {
         q1.position.z = camera.position.z;
 
         /* Движение камеры учитывая вращение камеры относительно внутренней оси Y */
+			
+				if(sft){
         if (w) {
             camera.position.x -= 1 * mult * Math.sin(camera.rotation.y);
             camera.position.z -= 1 * mult * Math.cos(camera.rotation.y);
@@ -427,9 +432,26 @@ window.onload = function () {
             camera.position.z -= 1 * mult * Math.sin(camera.rotation.y);
         }
         /* Движение камеры вверх/вниз НЕ учитывая вращение камеры относительно внутренней оси Y*/
-        if (bsp) camera.position.y += 1 * mult;
-        if (sft) camera.position.y -= 1 * mult;
-
+        //if (bsp) camera.position.y += 1 * mult;
+        //if (sft) camera.position.y -= 1 * mult;
+				}else
+				if (w) {
+            shipPosition.position.x -= 1 * mult * Math.sin(camera.rotation.y);
+            shipPosition.position.z -= 1 * mult * Math.cos(camera.rotation.y);
+        }
+        if (a) {
+            shipPosition.position.x -= 1 * mult * Math.cos(camera.rotation.y);
+            shipPosition.position.z += 1 * mult * Math.sin(camera.rotation.y);
+        }
+        if (s) {
+            shipPosition.position.x += 1 * mult * Math.sin(camera.rotation.y);
+            shipPosition.position.z += 1 * mult * Math.cos(camera.rotation.y);
+        }
+        if (d) {
+            shipPosition.position.x += 1 * mult * Math.cos(camera.rotation.y);
+            shipPosition.position.z -= 1 * mult * Math.sin(camera.rotation.y);
+        }
+					
         /*
         sunAngle += 0.001;
         sun.position.x = 200 * Math.sin(sunAngle);
