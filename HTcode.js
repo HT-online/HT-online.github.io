@@ -215,7 +215,7 @@ window.onload = function () {
     /* Функции для опряделения нажатых кнопок */
     window.onkeydown = function (event) {
         switch (event.keyCode) {
-            case 87: { w = true; break; }
+            case 87: { w = true; break; console.log('w1');}
             case 65: { a = true; break; console.log('a1');}
             case 83: { s = true; break; }
             case 68: { d = true; break; }
