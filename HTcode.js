@@ -314,6 +314,7 @@ window.onload = function () {
 								CUBE2.position.y = y2;
 								CUBE2.position.z = j*polygonSize - 30*Math.cos(shipRotation.y);
             	}*/
+							/*
               waterGeometryChunks[a,b].vertices.push(
             		new THREE.Vector3(polygonSize*(i+a*iMax), 0, polygonSize*(j+b*jMax)),
             		new THREE.Vector3(polygonSize*(i+a*iMax), 0, polygonSize*(j+1+b*jMax)),
@@ -322,8 +323,8 @@ window.onload = function () {
             		new THREE.Vector3(polygonSize*(i+a*iMax), 0, polygonSize*(j+b*jMax)),
             		new THREE.Vector3(polygonSize*(i+1+a*iMax), 0, polygonSize*(j+1+b*jMax)),
             		new THREE.Vector3(polygonSize*(i+1+a*iMax), 0, polygonSize*(j+1+b*jMax))
-          		);
-              /*
+          		);*/
+              
           		waterGeometryChunks[a,b].vertices.push(
             		new THREE.Vector3(polygonSize*(i+a*iMax), lastheight1*lastheight2*waveMulti, polygonSize*(j+b*jMax)),
             		new THREE.Vector3(polygonSize*(i+a*iMax), height1*lastheight2*waveMulti, polygonSize*(j+1+b*jMax)),
@@ -332,7 +333,7 @@ window.onload = function () {
             		new THREE.Vector3(polygonSize*(i+a*iMax), lastheight1*lastheight2*waveMulti, polygonSize*(j+b*jMax)),
             		new THREE.Vector3(polygonSize*(i+1+a*iMax), lastheight1*height2*waveMulti, polygonSize*(j+1+b*jMax)),
             		new THREE.Vector3(polygonSize*(i+1+a*iMax), height1*height2*waveMulti, polygonSize*(j+1+b*jMax))
-          		);*/
+          		);
           		waterGeometryChunks[a,b].faces.push(
             		new THREE.Face3((i*iMax+j)*6+0, (i*iMax+j)*6+1, (i*iMax+j)*6+2),
             		new THREE.Face3((i*iMax+j)*6+3, (i*iMax+j)*6+5, (i*iMax+j)*6+4)
@@ -489,8 +490,8 @@ window.onload = function () {
         //if (sft) camera.position.y -= 1 * mult;
 				}else{
 				if (w) {
-						if (a)shipRotation.y+=0.05;
-					  if (d)shipRotation.y-=0.05;
+						if (a) shipRotation.y+=0.05;
+					  if (d) shipRotation.y-=0.05;
             shipPosition.x += 1 * mult * Math.sin(shipRotation.y);
             shipPosition.z += 1 * mult * Math.cos(shipRotation.y);
         }}
