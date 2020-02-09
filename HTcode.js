@@ -278,10 +278,10 @@ window.onload = function () {
 	
 		for(let i=0;i<5;i++)
 			for(let j=0;j<5;j++){
-				waterMeshChunks[i,j] = new THREE.Mesh();
+				waterMeshChunks[i][j] = new THREE.Mesh();
         waterSurface.name = i+" "+j;
-				waterMeshChunks[i,j].material = waterMaterial;
-				scene.add( waterMeshChunks[i,j] );
+				waterMeshChunks[i][j].material = waterMaterial;
+				scene.add( waterMeshChunks[i][j] );
 			}
 	
     /* Анимация мира */
@@ -301,7 +301,7 @@ window.onload = function () {
       let wg1 = new THREE.Geometry();
       let wg2 = new THREE.Geometry();
 			for(let a=0;a<5;a++){
-				for(let k=0;k<5;k++)waterGeometryChunks[a,k] = new THREE.Geometry();
+				for(let k=0;k<5;k++)waterGeometryChunks[a][k] = new THREE.Geometry();
 				for(let b=0;b<5;b++){
           
 					let height1=0, lastheight1=Math.sin((incX-1)/sinMulti), height2=0, lastheight2=Math.sin((incZ-1)/sinMulti);
@@ -323,7 +323,7 @@ window.onload = function () {
 								CUBE2.position.z = j*polygonSize - 30*Math.cos(shipRotation.y);
             	}
               /*
-              waterGeometryChunks[a,b].vertices.push(
+              waterGeometryChunks[a][b].vertices.push(
             		new THREE.Vector3(polygonSize*(i)+100, 0, polygonSize*(j)),
             		new THREE.Vector3(polygonSize*(i)+100, 0, polygonSize*(j+1)),
             		new THREE.Vector3(polygonSize*(i+1)+100, 0, polygonSize*(j+1)),
@@ -333,7 +333,7 @@ window.onload = function () {
             		new THREE.Vector3(polygonSize*(i+1)+100, 0, polygonSize*(j+1))
           		);*/
 							if(b!=2 || a!=2){
-              waterGeometryChunks[a,b].vertices.push(
+              waterGeometryChunks[a][b].vertices.push(
             		new THREE.Vector3(polygonSize*(i)+a*iMax*polygonSize, 0, polygonSize*(j)+b*jMax*polygonSize),
             		new THREE.Vector3(polygonSize*(i)+a*iMax*polygonSize, 0, polygonSize*(j+1)+b*jMax*polygonSize),
             		new THREE.Vector3(polygonSize*(i+1)+a*iMax*polygonSize, 0, polygonSize*(j+1)+b*jMax*polygonSize),
@@ -343,7 +343,7 @@ window.onload = function () {
             		new THREE.Vector3(polygonSize*(i+1)+a*iMax*polygonSize, 0, polygonSize*(j+1)+b*jMax*polygonSize)
           		);
               /*
-          		waterGeometryChunks[a,b].vertices.push(
+          		waterGeometryChunks[a][b].vertices.push(
             		new THREE.Vector3(polygonSize*(i+a*iMax), lastheight1*lastheight2*waveMulti, polygonSize*(j+b*jMax)),
             		new THREE.Vector3(polygonSize*(i+a*iMax), height1*lastheight2*waveMulti, polygonSize*(j+1+b*jMax)),
             		new THREE.Vector3(polygonSize*(i+1+a*iMax), height1*height2*waveMulti, polygonSize*(j+1+b*jMax)),
@@ -352,7 +352,7 @@ window.onload = function () {
             		new THREE.Vector3(polygonSize*(i+1+a*iMax), lastheight1*height2*waveMulti, polygonSize*(j+1+b*jMax)),
             		new THREE.Vector3(polygonSize*(i+1+a*iMax), height1*height2*waveMulti, polygonSize*(j+1+b*jMax))
           		);*/
-          		waterGeometryChunks[a,b].faces.push(
+          		waterGeometryChunks[a][b].faces.push(
             		new THREE.Face3((i*iMax+j)*6+0, (i*iMax+j)*6+1, (i*iMax+j)*6+2),
             		new THREE.Face3((i*iMax+j)*6+3, (i*iMax+j)*6+5, (i*iMax+j)*6+4)
           		);
@@ -377,11 +377,11 @@ window.onload = function () {
         		lastheight1 = Math.sin((incX-1)/sinMulti);
       		}
           if(b!=2 || a!=2){
-      		waterGeometryChunks[a,b].computeFaceNormals();
-					waterMeshChunks[a,b].geometry = waterGeometryChunks[a,b];
+      		waterGeometryChunks[a][b].computeFaceNormals();
+					waterMeshChunks[a][b].geometry = waterGeometryChunks[a][b];
           }else{
       		wg1.computeFaceNormals();
-					waterMeshChunks[a,b].geometry = wg1;
+					waterMeshChunks[a][b].geometry = wg1;
           }
 				}
 			}
@@ -481,8 +481,8 @@ window.onload = function () {
 
 				for(let i=0;i<5;i++)
 					for(let j=0;j<5;j++){
-						waterGeometryChunks[i,j].dispose();
-						waterMeshChunks[i,j].geometry.dispose();
+						waterGeometryChunks[i][j].dispose();
+						waterMeshChunks[i][j].geometry.dispose();
 					}
 				//waterGeometry.dispose();
 				//waterSurface.geometry.dispose();
