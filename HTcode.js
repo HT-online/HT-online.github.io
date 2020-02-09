@@ -299,8 +299,10 @@ window.onload = function () {
 			  }
       
 			for(let a=0;a<5;a++){
+				
+				for(let k=0;k<5;k++)waterGeometryChunks[a,k] = new THREE.Geometry();
 				for(let b=0;b<5;b++){
-          waterGeometryChunks[a,b] = new THREE.Geometry();
+          
 					let height1=0, lastheight1=Math.sin((incX-1)/sinMulti), height2=0, lastheight2=Math.sin((incZ-1)/sinMulti);
       		for(let i=0; i<iMax; i++){
         		height2 = Math.sin((i+incZ)/sinMulti);
