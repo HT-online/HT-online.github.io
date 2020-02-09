@@ -322,7 +322,7 @@ window.onload = function () {
             		new THREE.Vector3(polygonSize*(i)+100, 0, polygonSize*(j)),
             		new THREE.Vector3(polygonSize*(i+1)+100, 0, polygonSize*(j+1)),
             		new THREE.Vector3(polygonSize*(i+1)+100, 0, polygonSize*(j+1))
-          		);*/
+          		);
 							/*
               waterGeometryChunks[a,b].vertices.push(
             		new THREE.Vector3(polygonSize*(i+a*iMax), 0, polygonSize*(j+b*jMax)),
