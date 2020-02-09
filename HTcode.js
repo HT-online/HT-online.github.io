@@ -291,8 +291,10 @@ window.onload = function () {
       incX+=speedX;
       incZ+=speedZ;
 
-			for(let a=0;a<8;a++){
-				for(let b=0;b<8;b++){
+      let a=5,b=5;
+      
+			//for(let a=0;a<8;a++){
+				//for(let b=0;b<8;b++){
       
 					waterGeometryChunks[a,b] = new THREE.Geometry();
 					
@@ -356,8 +358,8 @@ window.onload = function () {
       		waterGeometryChunks[a,b].computeFaceNormals();
 					waterMeshChunks[a,b].geometry = waterGeometryChunks[a,b];
 					waterGeometryChunks[a,b].dispose();
-				}
-			}
+				//}
+			//}
       
 			
         /*
