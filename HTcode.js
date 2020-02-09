@@ -453,12 +453,12 @@ window.onload = function () {
         if(camera.rotation.x > Math.PI/2)camera.rotation.x = Math.PI/2;
         if(camera.rotation.x < -Math.PI/2)camera.rotation.x = -Math.PI/2;
         renderer.render(scene, camera);
-
+/*
 				for(let i=0;i<5;i++)
 					for(let j=0;j<5;j++){
 						waterGeometryChunks[i,j].dispose();
 						waterMeshChunks[i,j].geometry.dispose();
-					}
+					}*/
 				//waterGeometry.dispose();
 				//waterSurface.geometry.dispose();
         //scene.remove( waterSurface );
