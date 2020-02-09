@@ -291,10 +291,10 @@ window.onload = function () {
       incX+=speedX;
       incZ+=speedZ;
 
-      let a=5,b=5;
+      //let a=5,b=5;
       
-			//for(let a=0;a<8;a++){
-				//for(let b=0;b<8;b++){
+			for(let a=0;a<8;a++){
+				for(let b=0;b<8;b++){
       
 					waterGeometryChunks[a,b] = new THREE.Geometry();
 					
@@ -358,8 +358,8 @@ window.onload = function () {
       		waterGeometryChunks[a,b].computeFaceNormals();
 					waterMeshChunks[a,b].geometry = waterGeometryChunks[a,b];
 					waterGeometryChunks[a,b].dispose();
-				//}
-			//}
+				}
+			}
       
 			
         /*
@@ -453,14 +453,12 @@ window.onload = function () {
         if(camera.rotation.x > Math.PI/2)camera.rotation.x = Math.PI/2;
         if(camera.rotation.x < -Math.PI/2)camera.rotation.x = -Math.PI/2;
         renderer.render(scene, camera);
-	    						waterGeometryChunks[5,5].dispose();
-						waterMeshChunks[5,5].geometry.dispose();
-/*
+
 				for(let i=0;i<8;i++)
 					for(let j=0;j<8;j++){
 						waterGeometryChunks[i,j].dispose();
 						waterMeshChunks[i,j].geometry.dispose();
-					}*/
+					}
 				//waterGeometry.dispose();
 				//waterSurface.geometry.dispose();
         //scene.remove( waterSurface );
