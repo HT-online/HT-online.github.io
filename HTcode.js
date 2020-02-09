@@ -293,8 +293,8 @@ window.onload = function () {
 
       //let a=5,b=5;
       
-			for(let a=0;a<8;a++){
-				for(let b=0;b<8;b++){
+			for(let a=0;a<5;a++){
+				for(let b=0;b<5;b++){
       
 					waterGeometryChunks[a,b] = new THREE.Geometry();
 					
