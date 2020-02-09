@@ -299,7 +299,7 @@ window.onload = function () {
 			  }
       
 			for(let a=0;a<5;a++){
-				console.log(a+' ');
+				console.log('a = '+a);
 				for(let k=0;k<5;k++)waterGeometryChunks[a,k] = new THREE.Geometry();
 				for(let b=0;b<5;b++){
           
@@ -362,9 +362,8 @@ window.onload = function () {
       		}
       		waterGeometryChunks[a,b].computeFaceNormals();
 					waterMeshChunks[a,b].geometry = waterGeometryChunks[a,b];
-          console.log(b+' ');
+          console.log('b = '+b);
 				}
-        console.log('\n');
 			}
       
 			
