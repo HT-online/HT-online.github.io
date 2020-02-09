@@ -314,7 +314,16 @@ window.onload = function () {
 								CUBE2.position.y = y2;
 								CUBE2.position.z = j*polygonSize - 30*Math.cos(shipRotation.y);
             	}
-							
+              waterGeometryChunks[a,b].vertices.push(
+            		new THREE.Vector3(polygonSize*(i)+100, 0, polygonSize*(j)),
+            		new THREE.Vector3(polygonSize*(i)+100, 0, polygonSize*(j+1)),
+            		new THREE.Vector3(polygonSize*(i+1)+100, 0, polygonSize*(j+1)),
+
+            		new THREE.Vector3(polygonSize*(i)+100, 0, polygonSize*(j)),
+            		new THREE.Vector3(polygonSize*(i+1)+100, 0, polygonSize*(j+1)),
+            		new THREE.Vector3(polygonSize*(i+1)+100, 0, polygonSize*(j+1))
+          		);*/
+							/*
               waterGeometryChunks[a,b].vertices.push(
             		new THREE.Vector3(polygonSize*(i+a*iMax), 0, polygonSize*(j+b*jMax)),
             		new THREE.Vector3(polygonSize*(i+a*iMax), 0, polygonSize*(j+1+b*jMax)),
@@ -323,7 +332,7 @@ window.onload = function () {
             		new THREE.Vector3(polygonSize*(i+a*iMax), 0, polygonSize*(j+b*jMax)),
             		new THREE.Vector3(polygonSize*(i+1+a*iMax), 0, polygonSize*(j+1+b*jMax)),
             		new THREE.Vector3(polygonSize*(i+1+a*iMax), 0, polygonSize*(j+1+b*jMax))
-          		);
+          		);*/
               /*
           		waterGeometryChunks[a,b].vertices.push(
             		new THREE.Vector3(polygonSize*(i+a*iMax), lastheight1*lastheight2*waveMulti, polygonSize*(j+b*jMax)),
