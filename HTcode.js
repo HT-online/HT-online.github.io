@@ -344,6 +344,7 @@ window.onload = function () {
       		}
       		waterGeometryChunks[a,b].computeFaceNormals();
 					waterMeshChunks[a,b].geometry = waterGeometryChunks[a,b];
+					waterGeometryChunks[a,b].dispose();
 				//}
 			//}
       
@@ -442,7 +443,7 @@ window.onload = function () {
 
 				for(let i=0;i<8;i++)
 					for(let j=0;j<8;j++){
-						waterGeometryChunks[i,j].dispose();
+						//waterGeometryChunks[i,j].dispose();
 						waterMeshChunks[i,j].geometry.dispose();
 					}
 				//waterGeometry.dispose();
