@@ -303,7 +303,7 @@ window.onload = function () {
           		height1 = Math.sin((j+incX)/sinMulti);
 							
             	if(i*polygonSize - shipPosition.x - 30*Math.sin(shipRotation.y) < polygonSize && j*polygonSize - shipPosition.z - 30*Math.cos(shipRotation.y) < polygonSize){
-              	y1 = lastheight1*lastheightw2*waveMulti;
+              	y1 = lastheight1*lastheight2*waveMulti;
 								CUBE1.position.x = i*polygonSize + 30*Math.sin(shipRotation.y);
 								CUBE1.position.y = y1;
 								CUBE1.position.z = j*polygonSize + 30*Math.cos(shipRotation.y);
