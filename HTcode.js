@@ -177,8 +177,8 @@ window.onload = function () {
     //pirateShip.scale = new THREE.vector3(0.001,0.001,0.001);
     
     
-    let w, a, s, d, bsp, sft;// Определение переменных для кнопок
-    bsp = sft = w = a = s = d = false;// Инициализация переменных для кнопок
+    let btn_w, btn_a, btn_s, btn_d, btn_bsp, btn_sft;// Определение переменных для кнопок
+    btn_bsp = btn_sft = btn_w = btn_a = btn_s = btn_d = false;// Инициализация переменных для кнопок
 
     /* Создание камеры */
     let camera = new THREE.PerspectiveCamera(100, screenWidth / screenHeight, 0.1, 1000);
@@ -215,22 +215,22 @@ window.onload = function () {
     /* Функции для опряделения нажатых кнопок */
     window.onkeydown = function (event) {
         switch (event.keyCode) {
-            case 87: { w = true; console.log('w1');break;}
-            case 65: { a = true; console.log('a1');break;}
-            case 83: { s = true; break; }
-            case 68: { d = true; break; }
-            case 32: { bsp = true; break; }
-            case 16: { sft = true; break; }
+            case 87: { btn_w = true; break;}
+            case 65: { btn_a = true; break;}
+            case 83: { btn_s = true; break; }
+            case 68: { btn_d = true; break; }
+            case 32: { btn_bsp = true; break; }
+            case 16: { btn_sft = true; break; }
         }
     }
     window.onkeyup = function (event) {
         switch (event.keyCode) {
-            case 87: { w = false; break; }
-            case 65: { a = false; break; }
-            case 83: { s = false; break; }
-            case 68: { d = false; break; }
-            case 32: { bsp = false; break; }
-            case 16: { sft = false; break; }
+            case 87: { btn_w = false; break; }
+            case 65: { btn_a = false; break; }
+            case 83: { btn_s = false; break; }
+            case 68: { btn_d = false; break; }
+            case 32: { btn_bsp = false; break; }
+            case 16: { btn_sft = false; break; }
         }
     }
 
@@ -466,32 +466,32 @@ window.onload = function () {
 
         /* Движение камеры учитывая вращение камеры относительно внутренней оси Y */
 			
-				if(sft){
-        if (w) {
+				if(btn_sft){
+        if (btn_w) {
             camera.position.x -= 1 * mult * Math.sin(camera.rotation.y);
             camera.position.y += 1 * mult * Math.sin(camera.rotation.x);
             camera.position.z -= 1 * mult * Math.cos(camera.rotation.y);
         }
-        if (a) {console.log('a2');
+        if (btn_a) {
             camera.position.x -= 1 * mult * Math.cos(camera.rotation.y);
             camera.position.z += 1 * mult * Math.sin(camera.rotation.y);
         }
-        if (s) {
+        if (btn_s) {
             camera.position.x += 1 * mult * Math.sin(camera.rotation.y);
             camera.position.y -= 1 * mult * Math.sin(camera.rotation.x);
             camera.position.z += 1 * mult * Math.cos(camera.rotation.y);
         }
-        if (d) {
+        if (btn_d) {
             camera.position.x += 1 * mult * Math.cos(camera.rotation.y);
             camera.position.z -= 1 * mult * Math.sin(camera.rotation.y);
         }
         /* Движение камеры вверх/вниз НЕ учитывая вращение камеры относительно внутренней оси Y*/
-        //if (bsp) camera.position.y += 1 * mult;
-        //if (sft) camera.position.y -= 1 * mult;
+        //if (btn_bsp) camera.position.y += 1 * mult;
+        //if (btn_sft) camera.position.y -= 1 * mult;
 				}else{
-				if (w) {
-						if (a) shipRotation.y+=0.05;
-					  if (d) shipRotation.y-=0.05;
+				if (btn_w) {
+						if (btn_a) shipRotation.y+=0.05;
+					  if (btn_d) shipRotation.y-=0.05;
             shipPosition.x += 1 * mult * Math.sin(shipRotation.y);
             shipPosition.z += 1 * mult * Math.cos(shipRotation.y);
         }}
