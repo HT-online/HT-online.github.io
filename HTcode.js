@@ -347,8 +347,8 @@ window.onload = function () {
             		new THREE.Vector3(polygonSize*(i+1+a*iMax), height1*height2*waveMulti, polygonSize*(j+1+b*jMax))
           		);*/
           		waterGeometryChunks[a,b].faces.push(
-            		new THREE.Face3((i*iMax+j)*6+0, (i*iMax+j)*6+2, (i*iMax+j)*6+1),
-            		new THREE.Face3((i*iMax+j)*6+3, (i*iMax+j)*6+5, (i*iMax+j)*6+4)
+            		new THREE.Face3((i*iMax+j)*6+0, (i*iMax+j)*6+1, (i*iMax+j)*6+2),
+            		new THREE.Face3((i*iMax+j)*6+4, (i*iMax+j)*6+5, (i*iMax+j)*6+3)
           		);
           		lastheight1 = height1;
         		}
@@ -482,18 +482,18 @@ window.onload = function () {
 			
 				if(btn_sft){
         if (btn_w) {
-            camera.position.x -= 1 * mult * Math.sin(camera.rotation.y);
+            camera.position.x -= 1 * mult * Math.sin(camera.rotation.y)*Math.sin(camera.rotation.y);
             camera.position.y += 1 * mult * Math.sin(camera.rotation.x);
-            camera.position.z -= 1 * mult * Math.cos(camera.rotation.y);
+            camera.position.z -= 1 * mult * Math.cos(camera.rotation.y)*Math.sin(camera.rotation.y);
         }
         if (btn_a) {
             camera.position.x -= 1 * mult * Math.cos(camera.rotation.y);
             camera.position.z += 1 * mult * Math.sin(camera.rotation.y);
         }
         if (btn_s) {
-            camera.position.x += 1 * mult * Math.sin(camera.rotation.y);
+            camera.position.x += 1 * mult * Math.sin(camera.rotation.y)*Math.sin(camera.rotation.y);
             camera.position.y -= 1 * mult * Math.sin(camera.rotation.x);
-            camera.position.z += 1 * mult * Math.cos(camera.rotation.y);
+            camera.position.z += 1 * mult * Math.cos(camera.rotation.y)*Math.sin(camera.rotation.y);
         }
         if (btn_d) {
             camera.position.x += 1 * mult * Math.cos(camera.rotation.y);
