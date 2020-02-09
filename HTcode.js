@@ -282,10 +282,9 @@ window.onload = function () {
       waterGeometryChunks[i] = new Array(8);
     }
   
-		for(let i=0;i<5;i++)
-			for(let j=0;j<5;j++){
+		for(let i=0;i<waterMeshChunks.length;i++)
+			for(let j=0;j<waterMeshChunks.length;j++){
 				waterMeshChunks[i][j] = new THREE.Mesh();
-        waterSurface.name = i+" "+j;
 				waterMeshChunks[i][j].material = waterMaterial;
 				scene.add( waterMeshChunks[i][j] );
 			}
@@ -298,18 +297,13 @@ window.onload = function () {
       incX+=speedX;
       incZ+=speedZ;
 
-      //let a=5,b=5;
-      for(let i=0;i<5;i++)
-			  for(let j=0;j<5;j++){
-          //waterGeometryChunks[i,j] = new THREE.Geometry();
+      for(let i=0;i<waterGeometryChunks.length;i++)
+			  for(let j=0;j<waterGeometryChunks.length;j++){
+          waterGeometryChunks[i][j] = new THREE.Geometry();
 			  }
       
-      let wg1 = new THREE.Geometry();
-      let wg2 = new THREE.Geometry();
-			for(let a=0;a<5;a++){
-				for(let k=0;k<5;k++)waterGeometryChunks[a][k] = new THREE.Geometry();
-				for(let b=0;b<5;b++){
-          
+			for(let a=0;a<waterMeshChunks.length;a++){
+				for(let b=0;b<waterMeshChunks.length;b++){
 					let height1=0, lastheight1=Math.sin((incX-1)/sinMulti), height2=0, lastheight2=Math.sin((incZ-1)/sinMulti);
       		for(let i=0; i<iMax; i++){
         		height2 = Math.sin((i+incZ)/sinMulti);
@@ -348,13 +342,8 @@ window.onload = function () {
         		lastheight2 = height2;
         		lastheight1 = Math.sin((incX-1)/sinMulti);
       		}
-          if(b!=2 || a!=2){
       		waterGeometryChunks[a][b].computeFaceNormals();
 					waterMeshChunks[a][b].geometry = waterGeometryChunks[a][b];
-          }else{
-      		wg1.computeFaceNormals();
-					waterMeshChunks[a][b].geometry = wg1;
-          }
 				}
 			}
       
@@ -451,8 +440,8 @@ window.onload = function () {
         if(camera.rotation.x < -Math.PI/2)camera.rotation.x = -Math.PI/2;
         renderer.render(scene, camera);
 
-				for(let i=0;i<5;i++)
-					for(let j=0;j<5;j++){
+				for(let i=0;i<waterMeshChunks.length;i++)
+					for(let j=0;j<waterMeshChunks.length;j++){
 						waterGeometryChunks[i][j].dispose();
 						waterMeshChunks[i][j].geometry.dispose();
 					}
