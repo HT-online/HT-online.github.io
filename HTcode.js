@@ -285,15 +285,14 @@ window.onload = function () {
 	
     /* Анимация мира */
     setInterval(function () {
-			/*
+			
       let speedX=0.1;//Math.random()*0.5;
       let speedZ=speedX;//Math.random()*0.5;
       incX+=speedX;
       incZ+=speedZ;
-      let a=0;
-      let b=0;
-			//for(let b=0;b<8;b++){
-				//for(let a=0;a<8;a++){
+
+			for(let a=0;a<8;a++){
+				for(let b=0;b<8;b++){
       
 					waterGeometryChunks[a,b] = new THREE.Geometry();
 					
@@ -347,11 +346,11 @@ window.onload = function () {
       		waterGeometryChunks[a,b].computeFaceNormals();
 					waterMeshChunks[a,b].geometry = waterGeometryChunks[a,b];
 					waterGeometryChunks[a,b].dispose();
-				//}
-			//}
-      */
+				}
+			}
+      
 			
-        
+        /*
         let waterGeometry = new THREE.Geometry();
 				
         let speedX=0.1;//Math.random()*0.5;
@@ -397,7 +396,7 @@ window.onload = function () {
         }
 				waterGeometry.computeFaceNormals();
 				waterSurface.geometry = waterGeometry;
-				
+				*/
 			
         let now = Date.now();
         let dt = now - lastUpdate;
@@ -445,11 +444,11 @@ window.onload = function () {
 
 				for(let i=0;i<8;i++)
 					for(let j=0;j<8;j++){
-						//waterGeometryChunks[i,j].dispose();
+						waterGeometryChunks[i,j].dispose();
 						waterMeshChunks[i,j].geometry.dispose();
 					}
-				waterGeometry.dispose();
-				waterSurface.geometry.dispose();
+				//waterGeometry.dispose();
+				//waterSurface.geometry.dispose();
         //scene.remove( waterSurface );
         //scene.remove( pos1 );
         //scene.remove( pos2 );
