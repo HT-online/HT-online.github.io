@@ -276,8 +276,8 @@ window.onload = function () {
 		let waterMeshChunks = [[],[]];
 		let waterGeometryChunks = [[],[]];
 	
-		for(let i=0;i<8;i++)
-			for(let j=0;j<8;j++){
+		for(let i=0;i<5;i++)
+			for(let j=0;j<5;j++){
 				waterMeshChunks[i,j] = new THREE.Mesh();
 				waterMeshChunks[i,j].material = waterMaterial;
 				scene.add( waterMeshChunks[i,j] );
@@ -454,8 +454,8 @@ window.onload = function () {
         if(camera.rotation.x < -Math.PI/2)camera.rotation.x = -Math.PI/2;
         renderer.render(scene, camera);
 
-				for(let i=0;i<8;i++)
-					for(let j=0;j<8;j++){
+				for(let i=0;i<5;i++)
+					for(let j=0;j<5;j++){
 						waterGeometryChunks[i,j].dispose();
 						waterMeshChunks[i,j].geometry.dispose();
 					}
