@@ -298,8 +298,9 @@ window.onload = function () {
           //waterGeometryChunks[i,j] = new THREE.Geometry();
 			  }
       
+      let wg1 = new THREE.Geometry();
+      let wg2 = new THREE.Geometry();
 			for(let a=0;a<5;a++){
-				console.log('a = '+a);
 				for(let k=0;k<5;k++)waterGeometryChunks[a,k] = new THREE.Geometry();
 				for(let b=0;b<5;b++){
           
@@ -331,7 +332,7 @@ window.onload = function () {
             		new THREE.Vector3(polygonSize*(i+1)+100, 0, polygonSize*(j+1)),
             		new THREE.Vector3(polygonSize*(i+1)+100, 0, polygonSize*(j+1))
           		);*/
-							
+							if(a!=b&&a!=2){
               waterGeometryChunks[a,b].vertices.push(
             		new THREE.Vector3(polygonSize*(i)+a*iMax*polygonSize, 0, polygonSize*(j)+b*jMax*polygonSize),
             		new THREE.Vector3(polygonSize*(i)+a*iMax*polygonSize, 0, polygonSize*(j+1)+b*jMax*polygonSize),
@@ -355,14 +356,33 @@ window.onload = function () {
             		new THREE.Face3((i*iMax+j)*6+0, (i*iMax+j)*6+1, (i*iMax+j)*6+2),
             		new THREE.Face3((i*iMax+j)*6+3, (i*iMax+j)*6+5, (i*iMax+j)*6+4)
           		);
+              }else{
+              wg1.vertices.push(
+            		new THREE.Vector3(polygonSize*(i)+a*iMax*polygonSize, 0, polygonSize*(j)+b*jMax*polygonSize),
+            		new THREE.Vector3(polygonSize*(i)+a*iMax*polygonSize, 0, polygonSize*(j+1)+b*jMax*polygonSize),
+            		new THREE.Vector3(polygonSize*(i+1)+a*iMax*polygonSize, 0, polygonSize*(j+1)+b*jMax*polygonSize),
+
+            		new THREE.Vector3(polygonSize*(i)+a*iMax*polygonSize, 0, polygonSize*(j)+b*jMax*polygonSize),
+            		new THREE.Vector3(polygonSize*(i+1)+a*iMax*polygonSize, 0, polygonSize*(j)+b*jMax*polygonSize),
+            		new THREE.Vector3(polygonSize*(i+1)+a*iMax*polygonSize, 0, polygonSize*(j+1)+b*jMax*polygonSize)
+          		);
+          		wg1.faces.push(
+            		new THREE.Face3((i*iMax+j)*6+0, (i*iMax+j)*6+1, (i*iMax+j)*6+2),
+            		new THREE.Face3((i*iMax+j)*6+3, (i*iMax+j)*6+5, (i*iMax+j)*6+4)
+          		);
+              }
           		lastheight1 = height1;
         		}
         		lastheight2 = height2;
         		lastheight1 = Math.sin((incX-1)/sinMulti);
       		}
+          if(a!=b&&a!=2){
       		waterGeometryChunks[a,b].computeFaceNormals();
 					waterMeshChunks[a,b].geometry = waterGeometryChunks[a,b];
-          console.log('b = '+b);
+          }else{
+      		wg1.computeFaceNormals();
+					waterMeshChunks[a,b].geometry = wg1;
+          }
 				}
 			}
       
