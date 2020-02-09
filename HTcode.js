@@ -333,7 +333,7 @@ window.onload = function () {
             		new THREE.Vector3(polygonSize*(i+1)+a*iMax*polygonSize, 0, polygonSize*(j+1)+b*jMax*polygonSize),
 
             		new THREE.Vector3(polygonSize*(i)+a*iMax*polygonSize, 0, polygonSize*(j)+b*jMax*polygonSize),
-            		new THREE.Vector3(polygonSize*(i+1)+a*iMax*polygonSize, 0, polygonSize*(j+1)+b*jMax*polygonSize),
+            		new THREE.Vector3(polygonSize*(i+1)+a*iMax*polygonSize, 0, polygonSize*(j)+b*jMax*polygonSize),
             		new THREE.Vector3(polygonSize*(i+1)+a*iMax*polygonSize, 0, polygonSize*(j+1)+b*jMax*polygonSize)
           		);
               /*
@@ -348,7 +348,7 @@ window.onload = function () {
           		);*/
           		waterGeometryChunks[a,b].faces.push(
             		new THREE.Face3((i*iMax+j)*6+0, (i*iMax+j)*6+1, (i*iMax+j)*6+2),
-            		new THREE.Face3((i*iMax+j)*6+4, (i*iMax+j)*6+5, (i*iMax+j)*6+3)
+            		new THREE.Face3((i*iMax+j)*6+3, (i*iMax+j)*6+5, (i*iMax+j)*6+4)
           		);
           		lastheight1 = height1;
         		}
@@ -482,18 +482,18 @@ window.onload = function () {
 			
 				if(btn_sft){
         if (btn_w) {
-            camera.position.x -= 1 * mult * Math.sin(camera.rotation.y)*Math.sin(camera.rotation.y);
+            camera.position.x -= 1 * mult * Math.sin(camera.rotation.y)*Math.cos(camera.rotation.x);
             camera.position.y += 1 * mult * Math.sin(camera.rotation.x);
-            camera.position.z -= 1 * mult * Math.cos(camera.rotation.y)*Math.sin(camera.rotation.y);
+            camera.position.z -= 1 * mult * Math.cos(camera.rotation.y)*Math.cos(camera.rotation.x);
         }
         if (btn_a) {
             camera.position.x -= 1 * mult * Math.cos(camera.rotation.y);
             camera.position.z += 1 * mult * Math.sin(camera.rotation.y);
         }
         if (btn_s) {
-            camera.position.x += 1 * mult * Math.sin(camera.rotation.y)*Math.sin(camera.rotation.y);
+            camera.position.x += 1 * mult * Math.sin(camera.rotation.y)*Math.cos(camera.rotation.x);
             camera.position.y -= 1 * mult * Math.sin(camera.rotation.x);
-            camera.position.z += 1 * mult * Math.cos(camera.rotation.y)*Math.sin(camera.rotation.y);
+            camera.position.z += 1 * mult * Math.cos(camera.rotation.y)*Math.cos(camera.rotation.x);
         }
         if (btn_d) {
             camera.position.x += 1 * mult * Math.cos(camera.rotation.y);
