@@ -290,8 +290,8 @@ window.onload = function () {
       let speedZ=speedX;//Math.random()*0.5;
       incX+=speedX;
       incZ+=speedZ;
-			for(let a=0;a<8;a++){
-				for(let b=0;b<8;b++){
+			for(let b=0;b<8;b++){
+				for(let a=0;a<8;a++){
 					waterGeometryChunks[a,b] = new THREE.Geometry();
 					
 					let height1=0, lastheight1=Math.sin((incX-1)/sinMulti), height2=0, lastheight2=Math.sin((incZ-1)/sinMulti);
