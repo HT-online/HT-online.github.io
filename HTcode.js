@@ -279,6 +279,7 @@ window.onload = function () {
 		for(let i=0;i<5;i++)
 			for(let j=0;j<5;j++){
 				waterMeshChunks[i,j] = new THREE.Mesh();
+        waterSurface.name = i+" "+j;
 				waterMeshChunks[i,j].material = waterMaterial;
 				scene.add( waterMeshChunks[i,j] );
 			}
@@ -294,11 +295,12 @@ window.onload = function () {
       //let a=5,b=5;
       for(let i=0;i<5;i++)
 			  for(let j=0;j<5;j++){
-          waterGeometryChunks[i,j] = new THREE.Geometry();
+          //waterGeometryChunks[i,j] = new THREE.Geometry();
 			  }
       
 			for(let a=0;a<5;a++){
 				for(let b=0;b<5;b++){
+          waterGeometryChunks[a,b] = new THREE.Geometry();
 					let height1=0, lastheight1=Math.sin((incX-1)/sinMulti), height2=0, lastheight2=Math.sin((incZ-1)/sinMulti);
       		for(let i=0; i<iMax; i++){
         		height2 = Math.sin((i+incZ)/sinMulti);
