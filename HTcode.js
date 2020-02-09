@@ -273,9 +273,15 @@ window.onload = function () {
 		let CUBE1 = createCube(scene,10,100,10,"#00FF00",0,0,0,0,0,0);
 		let CUBE2 = createCube(scene,10,100,10,"#FF0000",0,0,0,0,0,0);
   
-		let waterMeshChunks = [[],[]];
-		let waterGeometryChunks = [[],[]];
-	
+    let waterMeshChunks = new Array (8);
+    for (let i=0; i < waterMeshChunks.length; i++) {
+      waterMeshChunks[i] = new Array(8);
+    }
+    let waterGeometryChunks = new Array (8);
+    for (let i=0; i < waterGeometryChunks.length; i++) {
+      waterGeometryChunks[i] = new Array(8);
+    }
+  
 		for(let i=0;i<5;i++)
 			for(let j=0;j<5;j++){
 				waterMeshChunks[i][j] = new THREE.Mesh();
