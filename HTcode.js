@@ -294,6 +294,7 @@ window.onload = function () {
       let b=0;
 			//for(let b=0;b<8;b++){
 				//for(let a=0;a<8;a++){
+      /*
 					waterGeometryChunks[a,b] = new THREE.Geometry();
 					
 					let height1=0, lastheight1=Math.sin((incX-1)/sinMulti), height2=0, lastheight2=Math.sin((incZ-1)/sinMulti);
@@ -301,7 +302,7 @@ window.onload = function () {
         		height2 = Math.sin((i+incZ)/sinMulti);
         		for(let j=0; j<jMax; j++){
           		height1 = Math.sin((j+incX)/sinMulti);
-							/*
+							
             	if(i*polygonSize - shipPosition.x - 30*Math.sin(shipRotation.y) < polygonSize && j*polygonSize - shipPosition.z - 30*Math.cos(shipRotation.y) < polygonSize){
               	y1 = lastheight1*lastheightw2*waveMulti;
 								CUBE1.position.x = i*polygonSize + 30*Math.sin(shipRotation.y);
@@ -313,8 +314,8 @@ window.onload = function () {
 								CUBE2.position.x = i*polygonSize - 30*Math.sin(shipRotation.y);
 								CUBE2.position.y = y2;
 								CUBE2.position.z = j*polygonSize - 30*Math.cos(shipRotation.y);
-            	}*/
-							/*
+            	}
+							
               waterGeometryChunks[a,b].vertices.push(
             		new THREE.Vector3(polygonSize*(i+a*iMax), 0, polygonSize*(j+b*jMax)),
             		new THREE.Vector3(polygonSize*(i+a*iMax), 0, polygonSize*(j+1+b*jMax)),
@@ -323,7 +324,7 @@ window.onload = function () {
             		new THREE.Vector3(polygonSize*(i+a*iMax), 0, polygonSize*(j+b*jMax)),
             		new THREE.Vector3(polygonSize*(i+1+a*iMax), 0, polygonSize*(j+1+b*jMax)),
             		new THREE.Vector3(polygonSize*(i+1+a*iMax), 0, polygonSize*(j+1+b*jMax))
-          		);*/
+          		);
               
           		waterGeometryChunks[a,b].vertices.push(
             		new THREE.Vector3(polygonSize*(i+a*iMax), lastheight1*lastheight2*waveMulti, polygonSize*(j+b*jMax)),
@@ -348,9 +349,9 @@ window.onload = function () {
 					waterGeometryChunks[a,b].dispose();
 				//}
 			//}
-      
+      */
 			
-        /*
+        
         let waterGeometry = new THREE.Geometry();
 				
         let speedX=0.1;//Math.random()*0.5;
@@ -396,7 +397,7 @@ window.onload = function () {
         }
 				waterGeometry.computeFaceNormals();
 				waterSurface.geometry = waterGeometry;
-				*/
+				
 			
         let now = Date.now();
         let dt = now - lastUpdate;
@@ -447,8 +448,8 @@ window.onload = function () {
 						//waterGeometryChunks[i,j].dispose();
 						waterMeshChunks[i,j].geometry.dispose();
 					}
-				//waterGeometry.dispose();
-				//waterSurface.geometry.dispose();
+				waterGeometry.dispose();
+				waterSurface.geometry.dispose();
         //scene.remove( waterSurface );
         //scene.remove( pos1 );
         //scene.remove( pos2 );
