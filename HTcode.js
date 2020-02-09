@@ -216,7 +216,7 @@ window.onload = function () {
     window.onkeydown = function (event) {
         switch (event.keyCode) {
             case 87: { w = true; break; }
-            case 65: { a = true; break; }
+            case 65: { a = true; break; console.log('a1');}
             case 83: { s = true; break; }
             case 68: { d = true; break; }
             case 32: { bsp = true; break; }
@@ -472,7 +472,7 @@ window.onload = function () {
             camera.position.y += 1 * mult * Math.sin(camera.rotation.x);
             camera.position.z -= 1 * mult * Math.cos(camera.rotation.y);
         }
-        if (a) {
+        if (a) {console.log('a2');
             camera.position.x -= 1 * mult * Math.cos(camera.rotation.y);
             camera.position.z += 1 * mult * Math.sin(camera.rotation.y);
         }
