@@ -332,7 +332,7 @@ window.onload = function () {
             		new THREE.Vector3(polygonSize*(i+1)+100, 0, polygonSize*(j+1)),
             		new THREE.Vector3(polygonSize*(i+1)+100, 0, polygonSize*(j+1))
           		);*/
-							if(a!=b&&a!=2){
+							if(b!=2&&a!=2){
               waterGeometryChunks[a,b].vertices.push(
             		new THREE.Vector3(polygonSize*(i)+a*iMax*polygonSize, 0, polygonSize*(j)+b*jMax*polygonSize),
             		new THREE.Vector3(polygonSize*(i)+a*iMax*polygonSize, 0, polygonSize*(j+1)+b*jMax*polygonSize),
@@ -376,7 +376,7 @@ window.onload = function () {
         		lastheight2 = height2;
         		lastheight1 = Math.sin((incX-1)/sinMulti);
       		}
-          if(a!=b&&a!=2){
+          if(b!=2&&a!=2){
       		waterGeometryChunks[a,b].computeFaceNormals();
 					waterMeshChunks[a,b].geometry = waterGeometryChunks[a,b];
           }else{
