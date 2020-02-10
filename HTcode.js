@@ -307,7 +307,8 @@ window.onload = function () {
       let height1=0, lastheight1 = Math.sin((incX-speedX)/sinMulti), height2=0, lastheight2 = 0;
 			for(let a=0;a<waterMeshChunks.length;a++){
         lastheight2 = Math.sin((incZ-speedZ)/sinMulti);
-				for(let b=0;b<waterMeshChunks.length;b++){
+				for(let b=0;b<1;b++){
+          
       		for(let i=0; i<iMax; i++){
         		height2 = Math.sin((i+incZ)/sinMulti+Math.asin(lastheight2));
         		for(let j=0; j<jMax; j++){
