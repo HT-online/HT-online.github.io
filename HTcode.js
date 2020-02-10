@@ -292,20 +292,22 @@ window.onload = function () {
     let deltaX;
     /* Анимация мира */
     setInterval(function () {
-			
+      
+			for(let i=0;i<waterGeometryChunks.length;i++)
+			  for(let j=0;j<waterGeometryChunks.length;j++){
+          waterGeometryChunks[i][j] = new THREE.Geometry();
+			  }
+      
       let speedX=0.1;//Math.random()*0.5;
       let speedZ=speedX;//Math.random()*0.5;
       incX+=speedX;
       incZ+=speedZ;
-
-      for(let i=0;i<waterGeometryChunks.length;i++)
-			  for(let j=0;j<waterGeometryChunks.length;j++){
-          waterGeometryChunks[i][j] = new THREE.Geometry();
-			  }
-      let height1=0, lastheight1=Math.sin((incX-1)/sinMulti), height2=0, lastheight2=Math.sin((incZ-1)/sinMulti);
+      if(incX>2*Math.PI)incX-=2*Math.PI;
+      if(incZ>2*Math.PI)incZ-=2*Math.PI;
+      let height1=0, lastheight1 = Math.sin((incX-1)/sinMulti), height2=0, lastheight2 = 0;
 			for(let a=0;a<waterMeshChunks.length;a++){
+        lastheight2 = Math.sin((incZ-1)/sinMulti);
 				for(let b=0;b<waterMeshChunks.length;b++){
-					
       		for(let i=0; i<iMax; i++){
         		height2 = Math.sin((i+incZ)/sinMulti+Math.asin(lastheight2));
         		for(let j=0; j<jMax; j++){
