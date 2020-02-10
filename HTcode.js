@@ -301,10 +301,10 @@ window.onload = function () {
 			  for(let j=0;j<waterGeometryChunks.length;j++){
           waterGeometryChunks[i][j] = new THREE.Geometry();
 			  }
-      
+      let height1=0, lastheight1=Math.sin((incX-1)/sinMulti), height2=0, lastheight2=Math.sin((incZ-1)/sinMulti);
 			for(let a=0;a<waterMeshChunks.length;a++){
 				for(let b=0;b<waterMeshChunks.length;b++){
-					let height1=0, lastheight1=Math.sin((incX-1)/sinMulti), height2=0, lastheight2=Math.sin((incZ-1)/sinMulti);
+					
       		for(let i=0; i<iMax; i++){
         		height2 = Math.sin((i+incZ)/sinMulti);
         		for(let j=0; j<jMax; j++){
