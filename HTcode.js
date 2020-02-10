@@ -304,17 +304,19 @@ window.onload = function () {
       //incZ+=speedZ;
       if(incX>2*Math.PI)incX-=2*Math.PI;
       if(incZ>2*Math.PI)incZ-=2*Math.PI;
-      let height1=0, lastheight1 = 0, height2=0, lastheight2 = Math.sin((incZ-speedZ)/sinMulti);
+      let height1=0, lastheight1 = 0, height2=0, lastheight2 = 0;
+      //lastheight2 = Math.sin((incZ-speedZ)/sinMulti);
+      lastheight1 = Math.sin((incX-speedX)/sinMulti);
 			for(let a=0;a<waterMeshChunks.length;a++){
-        //lastheight2 = Math.sin((incZ-speedZ)/sinMulti);
-        lastheight1 = Math.sin((incX-speedX)/sinMulti);
+        lastheight2 = Math.sin((incZ-speedZ)/sinMulti);
+        //lastheight1 = Math.sin((incX-speedX)/sinMulti);
 				for(let b=0;b<waterMeshChunks.length;b++){
           
       		for(let i=0; i<iMax; i++){
-        		height2 = Math.sin((i+incZ)/sinMulti+Math.asin(lastheight2));
+        		height2 = Math.sin((a*iMax+i+incZ)/sinMulti+Math.asin(lastheight2));
             //height2=1;
         		for(let j=0; j<jMax; j++){
-          		height1 = Math.sin((j+incX)/sinMulti+Math.asin(lastheight1));
+          		height1 = Math.sin((b*jMax+j+incX)/sinMulti+Math.asin(lastheight1));
             	if(i*polygonSize - shipPosition.x - 30*Math.sin(shipRotation.y) < polygonSize && j*polygonSize - shipPosition.z - 30*Math.cos(shipRotation.y) < polygonSize){
               	y1 = lastheight1*lastheight2*waveMulti;
 								CUBE1.position.x = i*polygonSize + 30*Math.sin(shipRotation.y);
