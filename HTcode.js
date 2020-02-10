@@ -309,10 +309,11 @@ window.onload = function () {
         lastheight2 = Math.sin((incZ-1)/sinMulti);
 				for(let b=0;b<waterMeshChunks.length;b++){
       		for(let i=0; i<iMax; i++){
-        		height2 = Math.sin((i-i+incZ)/sinMulti+Math.asin(lastheight2));
+        		//height2 = Math.sin((i-i+incZ)/sinMulti+Math.asin(lastheight2));
+            height2 = Math.sin((incZ)/sinMulti);
         		for(let j=0; j<jMax; j++){
-          		height1 = Math.sin((j-j+incX)/sinMulti+Math.asin(lastheight1));
-							
+          		//height1 = Math.sin((j-j+incX)/sinMulti+Math.asin(lastheight1));
+							height1 = Math.sin((incX)/sinMulti);
             	if(i*polygonSize - shipPosition.x - 30*Math.sin(shipRotation.y) < polygonSize && j*polygonSize - shipPosition.z - 30*Math.cos(shipRotation.y) < polygonSize){
               	y1 = lastheight1*lastheight2*waveMulti;
 								CUBE1.position.x = i*polygonSize + 30*Math.sin(shipRotation.y);
