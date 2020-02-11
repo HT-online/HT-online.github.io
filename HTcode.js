@@ -346,9 +346,10 @@ window.onload = function () {
           		);
           		lastheight1 = height1;
         		}
-        		lastheight2 = height2;
-        		lastheight1 = Math.sin((incX-1)/sinMulti);
-            //lastheight1 = Math.sin((incX)/sinMulti);
+            lastheight2 = Math.sin((incZ-1)/sinMulti);
+        		//lastheight2 = height2;
+        		//lastheight1 = Math.sin((incX-1)/sinMulti);
+            lastheight1 = height1;
       		}
       		waterGeometryChunks[a][b].computeFaceNormals();
 					waterMeshChunks[a][b].geometry = waterGeometryChunks[a][b];
