@@ -347,7 +347,7 @@ window.onload = function () {
           		lastheight1 = height1;
         		}
         		lastheight2 = height2;
-        		lastheight1 = height1;//Math.sin((incX-1)/sinMulti+Math.asin(lastheight1));
+        		lastheight1 = Math.sin((incX-1)/sinMulti);
             //lastheight1 = Math.sin((incX)/sinMulti);
       		}
       		waterGeometryChunks[a][b].computeFaceNormals();
