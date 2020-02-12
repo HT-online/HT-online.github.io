@@ -314,9 +314,9 @@ window.onload = function () {
           
       		for(let i=0; i<iMax; i++){
         		//height2 = Math.sin((a*iMax+i+incZ)/sinMulti);//+Math.asin(lastheight2);
-			      height1 = Math.sin((a*iMax+i+incX)/sinMulti);
+			      height2 = Math.sin((a*iMax+i+incX)/sinMulti);
         		for(let j=0; j<jMax; j++){
-          		height2 = Math.sin((b*jMax+j+incX)/sinMulti);//+Math.asin(lastheight1)
+          		height1 = Math.sin((b*jMax+j+incX)/sinMulti);//+Math.asin(lastheight1)
             	if(i*polygonSize - shipPosition.x - 30*Math.sin(shipRotation.y) < polygonSize && j*polygonSize - shipPosition.z - 30*Math.cos(shipRotation.y) < polygonSize){
               	y1 = lastheight1*lastheight2*waveMulti;
 								CUBE1.position.x = i*polygonSize + 30*Math.sin(shipRotation.y);
