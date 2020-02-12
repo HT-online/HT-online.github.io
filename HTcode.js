@@ -318,10 +318,10 @@ window.onload = function () {
         		for(let j=0; j<jMax; j++){
 				      height1 = Math.sin((b*jMax+j+incX)/sinMulti);
               
-              if(a==0&&b==0&&i==0&&j==9)console.log(height2+' DO');
-              if(a==0&&b==1&&i==0&&j==0)console.log(lastheight2+' POSLE');
-              if(a==0&&b==0&&i==1&&j==9)console.log(height2+' DO 2');
-              if(a==0&&b==1&&i==1&&j==0)console.log(lastheight2+' POSLE 2');
+              if(a==0&&b==0&&i==0&&j==9)console.log(height2+' h2 1');
+              if(a==0&&b==0&&i==0&&j==9)console.log(lastheight2+' lh2 1');
+              if(a==0&&b==1&&i==0&&j==0)console.log(height2+' h2 2');
+              if(a==0&&b==1&&i==0&&j==0)console.log(lastheight2+' lh2 2');
             	if(i*polygonSize - shipPosition.x - 30*Math.sin(shipRotation.y) < polygonSize && j*polygonSize - shipPosition.z - 30*Math.cos(shipRotation.y) < polygonSize){
               	y1 = lastheight1*lastheight2*waveMulti;
 								CUBE1.position.x = i*polygonSize + 30*Math.sin(shipRotation.y);
