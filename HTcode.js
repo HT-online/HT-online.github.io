@@ -312,7 +312,7 @@ window.onload = function () {
 				for(let b=0;b<waterMeshChunks.length;b++){
           lastheight1 = Math.sin((b*jMax-1+incX)/sinMulti);
       		for(let i=0; i<iMax; i++){
-			      height2 = Math.sin((a*iMax+i+1+incZ)/sinMulti);
+			      height2 = Math.sin((a*iMax+i-1+incZ)/sinMulti);
         		for(let j=0; j<jMax; j++){
 				      height1 = Math.sin((b*jMax+j+incX)/sinMulti);
               
