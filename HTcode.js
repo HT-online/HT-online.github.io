@@ -345,7 +345,7 @@ window.onload = function () {
             		new THREE.Face3((i*iMax+j)*6+0, (i*iMax+j)*6+1, (i*iMax+j)*6+2),
             		new THREE.Face3((i*iMax+j)*6+3, (i*iMax+j)*6+5, (i*iMax+j)*6+4)
           		);
-          		//lastheight1 = height1;
+          		lastheight1 = height1;
         		}
             lastheight1 = Math.sin((incZ-1)/sinMulti);
         		//lastheight2 = height2;
