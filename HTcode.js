@@ -333,13 +333,13 @@ window.onload = function () {
 
 
           		waterGeometryChunks[a][b].vertices.push(
-            		new THREE.Vector3(polygonSize*(i+a*iMax), lastheight1*lastheight2*waveMulti, polygonSize*(j+b*jMax)),
-            		new THREE.Vector3(polygonSize*(i+a*iMax), height1*lastheight2*waveMulti, polygonSize*(j+1+b*jMax)),
-            		new THREE.Vector3(polygonSize*(i+1+a*iMax), height1*height2*waveMulti, polygonSize*(j+1+b*jMax)),
+            		new THREE.Vector3(polygonSize*(i+b*iMax), lastheight1*lastheight2*waveMulti, polygonSize*(j+a*jMax)),
+            		new THREE.Vector3(polygonSize*(i+b*iMax), height1*lastheight2*waveMulti, polygonSize*(j+1+a*jMax)),
+            		new THREE.Vector3(polygonSize*(i+1+b*iMax), height1*height2*waveMulti, polygonSize*(j+1+a*jMax)),
 
-            		new THREE.Vector3(polygonSize*(i+a*iMax), lastheight1*lastheight2*waveMulti, polygonSize*(j+b*jMax)),
-            		new THREE.Vector3(polygonSize*(i+1+a*iMax), lastheight1*height2*waveMulti, polygonSize*(j+b*jMax)),
-            		new THREE.Vector3(polygonSize*(i+1+a*iMax), height1*height2*waveMulti, polygonSize*(j+1+b*jMax))
+            		new THREE.Vector3(polygonSize*(i+b*iMax), lastheight1*lastheight2*waveMulti, polygonSize*(j+a*jMax)),
+            		new THREE.Vector3(polygonSize*(i+1+b*iMax), lastheight1*height2*waveMulti, polygonSize*(j+a*jMax)),
+            		new THREE.Vector3(polygonSize*(i+1+b*iMax), height1*height2*waveMulti, polygonSize*(j+1+a*jMax))
           		);
           		waterGeometryChunks[a][b].faces.push(
             		new THREE.Face3((i*iMax+j)*6+0, (i*iMax+j)*6+1, (i*iMax+j)*6+2),
@@ -347,7 +347,7 @@ window.onload = function () {
           		);
           		lastheight1 = height1;
         		}
-            lastheight1 = Math.sin((incZ-1)/sinMulti);
+            lastheight1 = Math.sin((b*iMax+incX-1)/sinMulti);
         		//lastheight2 = height2;
         		//lastheight1 = Math.sin((incX-1)/sinMulti);
             lastheight2 = height2;
