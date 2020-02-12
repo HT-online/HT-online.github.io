@@ -322,7 +322,7 @@ window.onload = function () {
 								CUBE1.position.y = y1;
 								CUBE1.position.z = polygonSize*(a*iMax+i) + 30*Math.cos(shipRotation.y);
             	}
-            	if(i*polygonSize - shipPosition.x + 30*Math.sin(shipRotation.y) < polygonSize && j*polygonSize - shipPosition.z + 30*Math.cos(shipRotation.y) < polygonSize){
+            	if(Math.abs(polygonSize*(b*jMax+j) - shipPosition.x + 30*Math.sin(shipRotation.y)) < polygonSize && Math.abs(polygonSize*(a*iMax+i) - shipPosition.z + 30*Math.cos(shipRotation.y)) < polygonSize){
               	y2 = lastheight1*lastheight2*waveMulti;
 								CUBE2.position.x = polygonSize*(b*jMax+j) - 30*Math.sin(shipRotation.y);
 								CUBE2.position.y = y2;
