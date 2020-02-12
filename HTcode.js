@@ -329,11 +329,11 @@ window.onload = function () {
 
           		waterGeometryChunks[a][b].vertices.push(
             		new THREE.Vector3(polygonSize*(j+b*jMax), lastheight1*lastheight2*waveMulti, polygonSize*(i+a*iMax)),
-            		new THREE.Vector3(polygonSize*(j+b*jMax), height1*lastheight2*waveMulti, polygonSize*(i+1+a*iMax)),
+            		new THREE.Vector3(polygonSize*(j+b*jMax), height2*lastheight1*waveMulti, polygonSize*(i+1+a*iMax)),
             		new THREE.Vector3(polygonSize*(j+1+b*jMax), height1*height2*waveMulti, polygonSize*(i+1+a*iMax)),
 
             		new THREE.Vector3(polygonSize*(j+b*jMax), lastheight1*lastheight2*waveMulti, polygonSize*(i+a*iMax)),
-            		new THREE.Vector3(polygonSize*(j+1+b*jMax), lastheight1*height2*waveMulti, polygonSize*(i+a*iMax)),
+            		new THREE.Vector3(polygonSize*(j+1+b*jMax), lastheight2*height1*waveMulti, polygonSize*(i+a*iMax)),
             		new THREE.Vector3(polygonSize*(j+1+b*jMax), height1*height2*waveMulti, polygonSize*(i+1+a*iMax))
           		);
           		waterGeometryChunks[a][b].faces.push(
