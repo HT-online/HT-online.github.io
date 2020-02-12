@@ -308,7 +308,7 @@ window.onload = function () {
       //lastheight2 = Math.sin((incZ-speedZ)/sinMulti);
       lastheight1 = Math.sin((incX-speedX)/sinMulti);
 			for(let a=0;a<waterMeshChunks.length;a++){
-        lastheight2 = Math.sin((incZ-speedZ)/sinMulti);
+        lastheight2 = Math.sin((a*jMax+incZ-speedZ)/sinMulti);
         //lastheight1 = Math.sin((incX-speedX)/sinMulti);
 				for(let b=0;b<waterMeshChunks.length;b++){
           
@@ -317,7 +317,7 @@ window.onload = function () {
 			      height2 = Math.sin((a*iMax+i+incX)/sinMulti);
         		for(let j=0; j<jMax; j++){
           		//+Math.asin(lastheight1)
-				      height1 = Math.sin((j+incZ)/sinMulti);
+				      height1 = Math.sin((b*jMax+j+incZ)/sinMulti);
             	if(i*polygonSize - shipPosition.x - 30*Math.sin(shipRotation.y) < polygonSize && j*polygonSize - shipPosition.z - 30*Math.cos(shipRotation.y) < polygonSize){
               	y1 = lastheight1*lastheight2*waveMulti;
 								CUBE1.position.x = i*polygonSize + 30*Math.sin(shipRotation.y);
