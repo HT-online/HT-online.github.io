@@ -330,7 +330,7 @@ window.onload = function () {
 								CUBE2.position.y = y2;
 								CUBE2.position.z = j*polygonSize - 30*Math.cos(shipRotation.y);
             	}
-
+              if(a==0&&i==0)lastheight2=-1;
           		waterGeometryChunks[a][b].vertices.push(
             		new THREE.Vector3(polygonSize*(j+b*jMax), lastheight1*lastheight2*waveMulti, polygonSize*(i+a*iMax)),
             		new THREE.Vector3(polygonSize*(j+b*jMax), height2*lastheight1*waveMulti, polygonSize*(i+1+a*iMax)),
