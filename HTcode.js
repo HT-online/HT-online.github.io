@@ -433,9 +433,9 @@ window.onload = function () {
 				destroyer.position.y = realShipPosition.y;
 				destroyer.position.z = realShipPosition.z;
       
-        if( Math.abs( destroyer.rotation.x - shipRotation.x ) > 0.05 ){
-        if(destroyer.rotation.x > shipRotation.x)destroyer.rotation.x -= 0.05;
-          else destroyer.rotation.x += 0.05;
+        if( Math.abs( destroyer.rotation.x - shipRotation.x ) > 0.001 ){
+        if(destroyer.rotation.x > shipRotation.x)destroyer.rotation.x -= 0.001;
+          else destroyer.rotation.x += 0.001;
         }
         else destroyer.rotation.x = shipRotation.x;
 				destroyer.rotation.y = shipRotation.y;
@@ -496,10 +496,10 @@ window.onload = function () {
         //if (btn_sft) camera.position.y -= 1 * mult;
 				}else{
 				if (btn_w) {
-						if (btn_a) shipRotation.y+=0.05;
-					  if (btn_d) shipRotation.y-=0.05;
-            shipPosition.x += 1 * mult * Math.sin(shipRotation.y);
-            shipPosition.z += 1 * mult * Math.cos(shipRotation.y);
+						if (btn_a) shipRotation.y+=0.03;
+					  if (btn_d) shipRotation.y-=0.03;
+            shipPosition.x += 0.6 * mult * Math.sin(shipRotation.y);
+            shipPosition.z += 0.6 * mult * Math.cos(shipRotation.y);
         }}
         /*
         sunAngle += 0.001;
