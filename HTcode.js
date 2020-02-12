@@ -269,7 +269,8 @@ window.onload = function () {
 		let waterMaterial = new THREE.MeshLambertMaterial( { color: 0x000066 } );
 		waterSurface.material = waterMaterial;
 		scene.add( waterSurface );
-	
+  
+	  let ground = createCube(scene,1000,1,1000,"#00FF00",0,-0.5,0,0,0,0);
 		let CUBE1 = createCube(scene,10,100,10,"#00FF00",0,0,0,0,0,0);
 		let CUBE2 = createCube(scene,10,100,10,"#FF0000",0,0,0,0,0,0);
   
@@ -307,9 +308,9 @@ window.onload = function () {
       let height1=0, lastheight1 = 0, height2=0, lastheight2 = 0;
       lastheight1 = Math.sin((incX-1)/sinMulti);
 			for(let a=0;a<waterMeshChunks.length;a++){
-        lastheight2 = Math.sin((a*iMax+incZ-1)/sinMulti);
+        lastheight2 = Math.sin((a*iMax-1+incZ)/sinMulti);
 				for(let b=0;b<waterMeshChunks.length;b++){
-          lastheight1 = Math.sin((b*jMax+incX-1)/sinMulti);
+          lastheight1 = Math.sin((b*jMax-1+incX)/sinMulti);
       		for(let i=0; i<iMax; i++){
 			      height2 = Math.sin((a*iMax+i+incZ)/sinMulti);
         		for(let j=0; j<jMax; j++){
@@ -343,7 +344,7 @@ window.onload = function () {
           		);
           		lastheight1 = height1;
         		}
-            lastheight1 = Math.sin((b*jMax+incX-1)/sinMulti);
+            lastheight1 = Math.sin((b*jMax-1+incX)/sinMulti);
             lastheight2 = height2;
       		}
       		waterGeometryChunks[a][b].computeFaceNormals();
