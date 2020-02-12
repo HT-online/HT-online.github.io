@@ -333,13 +333,13 @@ window.onload = function () {
 
 
           		waterGeometryChunks[a][b].vertices.push(
-            		new THREE.Vector3(polygonSize*(i+b*iMax), lastheight1*lastheight2*waveMulti, polygonSize*(j+a*jMax)),
-            		new THREE.Vector3(polygonSize*(i+b*iMax), height1*lastheight2*waveMulti, polygonSize*(j+1+a*jMax)),
-            		new THREE.Vector3(polygonSize*(i+1+b*iMax), height1*height2*waveMulti, polygonSize*(j+1+a*jMax)),
+            		new THREE.Vector3(polygonSize*(i+b*iMax-0.5), lastheight1*lastheight2*waveMulti, polygonSize*(j+a*jMax-0.5)),
+            		new THREE.Vector3(polygonSize*(i+b*iMax-0.5), height1*lastheight2*waveMulti, polygonSize*(j+1+a*jMax+0.5)),
+            		new THREE.Vector3(polygonSize*(i+1+b*iMax+0.5), height1*height2*waveMulti, polygonSize*(j+1+a*jMax+0.5)),
 
-            		new THREE.Vector3(polygonSize*(i+b*iMax), lastheight1*lastheight2*waveMulti, polygonSize*(j+a*jMax)),
-            		new THREE.Vector3(polygonSize*(i+1+b*iMax), lastheight1*height2*waveMulti, polygonSize*(j+a*jMax)),
-            		new THREE.Vector3(polygonSize*(i+1+b*iMax), height1*height2*waveMulti, polygonSize*(j+1+a*jMax))
+            		new THREE.Vector3(polygonSize*(i+b*iMax-0.5), lastheight1*lastheight2*waveMulti, polygonSize*(j+a*jMax-0.5)),
+            		new THREE.Vector3(polygonSize*(i+1+b*iMax+0.5), lastheight1*height2*waveMulti, polygonSize*(j+a*jMax-0.5)),
+            		new THREE.Vector3(polygonSize*(i+1+b*iMax+0.5), height1*height2*waveMulti, polygonSize*(j+1+a*jMax+0.5))
           		);
           		waterGeometryChunks[a][b].faces.push(
             		new THREE.Face3((i*iMax+j)*6+0, (i*iMax+j)*6+1, (i*iMax+j)*6+2),
