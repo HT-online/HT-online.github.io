@@ -312,8 +312,8 @@ window.onload = function () {
         //console.log('a '+a+' lh2 '+lastheight2+' BEFORE');
 				for(let b=0;b<waterMeshChunks.length;b++){
           lastheight1 = Math.sin((b*jMax-1+incX)/sinMulti);
-          if(a==0)console.log(height2+' h2 2 b');
-          if(a==0)console.log(lastheight2+' lh2 2 b');
+          if(a==0&&b==1)console.log(height2+' h2 2 b');
+          if(a==0&&b==1)console.log(lastheight2+' lh2 2 b');
       		for(let i=0; i<iMax; i++){
 			      height2 = Math.sin((a*iMax+i+incZ)/sinMulti);
         		for(let j=0; j<jMax; j++){
