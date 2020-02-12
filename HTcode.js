@@ -314,7 +314,7 @@ window.onload = function () {
           
       		for(let i=0; i<iMax; i++){
         		//height2 = Math.sin((a*iMax+i+incZ)/sinMulti);//+Math.asin(lastheight2);
-			      height2 = Math.sin((i+incX)/sinMulti);
+			      height2 = Math.sin((a*iMax+i+incX)/sinMulti);
         		for(let j=0; j<jMax; j++){
           		//+Math.asin(lastheight1)
 				      height1 = Math.sin((j+incZ)/sinMulti);
