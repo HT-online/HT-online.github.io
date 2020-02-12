@@ -309,7 +309,7 @@ window.onload = function () {
       lastheight1 = Math.sin((incX-1)/sinMulti);
 			for(let a=0;a<waterMeshChunks.length;a++){
         lastheight2 = Math.sin((a*iMax-1+incZ)/sinMulti);
-        
+        console.log('a '+a+' lh2 '+lastheight2+' BEFORE');
 				for(let b=0;b<waterMeshChunks.length;b++){
           lastheight1 = Math.sin((b*jMax-1+incX)/sinMulti);
           
@@ -331,6 +331,7 @@ window.onload = function () {
 								CUBE2.position.z = j*polygonSize - 30*Math.cos(shipRotation.y);
             	}
               if(a==0&&i==0)lastheight2=-1;
+              console.log('a '+a+' lh2 '+lastheight2+' AFTER');
           		waterGeometryChunks[a][b].vertices.push(
             		new THREE.Vector3(polygonSize*(j+b*jMax), lastheight1*lastheight2*waveMulti, polygonSize*(i+a*iMax)),
             		new THREE.Vector3(polygonSize*(j+b*jMax), height2*lastheight1*waveMulti, polygonSize*(i+1+a*iMax)),
