@@ -317,14 +317,10 @@ window.onload = function () {
 			      height2 = Math.sin((a*iMax+i+incZ)/sinMulti);
         		for(let j=0; j<jMax; j++){
 				      height1 = Math.sin((b*jMax+j+incX)/sinMulti);
-              if(a==0&&b==0&&i==0&&j==0)console.log(height2+' h2 1.1');
-              if(a==0&&b==0&&i==0&&j==0)console.log(lastheight2+' lh2 1.1');
-              if(a==0&&b==0&&i==0&&j==9)console.log(height2+' h2 1.2');
-              if(a==0&&b==0&&i==0&&j==9)console.log(lastheight2+' lh2 1.2');
-              if(a==0&&b==1&&i==0&&j==0)console.log(height2+' h2 2.1');
-              if(a==0&&b==1&&i==0&&j==0)console.log(lastheight2+' lh2 2.1');
-              if(a==0&&b==1&&i==0&&j==9)console.log(height2+' h2 2.2');
-              if(a==0&&b==1&&i==0&&j==9)console.log(lastheight2+' lh2 2.2');
+              if(a==0&&b==0&&i==0&&j==0)console.log(height2+' h2 1');
+              if(a==0&&b==0&&i==0&&j==0)console.log(lastheight2+' lh2 1');
+              if(a==0&&b==1&&i==0&&j==0)console.log(height2+' h2 2');
+              if(a==0&&b==1&&i==0&&j==0)console.log(lastheight2+' lh2 2');
               if(a==0&&b==0&&i==1&&j==9)console.log(height2+' h2 3');
               if(a==0&&b==0&&i==1&&j==9)console.log(lastheight2+' lh2 3');
               if(a==0&&b==1&&i==1&&j==0)console.log(height2+' h2 4');
@@ -357,7 +353,7 @@ window.onload = function () {
           		lastheight1 = height1;
         		}
             lastheight1 = Math.sin((b*jMax-1+incX)/sinMulti);
-            lastheight2 = height2;
+            //lastheight2 = height2;
       		}
       		waterGeometryChunks[a][b].computeFaceNormals();
 					waterMeshChunks[a][b].geometry = waterGeometryChunks[a][b];
