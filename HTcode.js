@@ -433,9 +433,9 @@ window.onload = function () {
 				destroyer.position.y = realShipPosition.y;
 				destroyer.position.z = realShipPosition.z;
       
-        if( Math.abs( destroyer.rotation.x - shipRotation.x ) > 0.001 ){
-        if(destroyer.rotation.x > shipRotation.x)destroyer.rotation.x -= 0.001;
-          else destroyer.rotation.x += 0.001;
+        if( Math.abs( destroyer.rotation.x - shipRotation.x ) > 0.01 ){
+        if(destroyer.rotation.x > shipRotation.x)destroyer.rotation.x -= 0.01;
+          else destroyer.rotation.x += 0.01;
         }
         else destroyer.rotation.x = shipRotation.x;
 				destroyer.rotation.y = shipRotation.y;
