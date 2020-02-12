@@ -301,8 +301,8 @@ window.onload = function () {
       
       let speedX=0.1;//Math.random()*0.5;
       let speedZ=speedX;//Math.random()*0.5;
-      //incX+=speedX;
-      //incZ+=speedZ;
+      incX+=speedX;
+      incZ+=speedZ;
       if(incX>2*Math.PI)incX-=2*Math.PI;
       if(incZ>2*Math.PI)incZ-=2*Math.PI;
       let height1=0, lastheight1 = 0, height2=0, lastheight2 = 0;
