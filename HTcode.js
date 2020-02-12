@@ -314,6 +314,7 @@ window.onload = function () {
 			      height2 = Math.sin((a*iMax+i+incZ)/sinMulti);
         		for(let j=0; j<jMax; j++){
 				      height1 = Math.sin((b*jMax+j+incX)/sinMulti);
+              
             	if(i*polygonSize - shipPosition.x - 30*Math.sin(shipRotation.y) < polygonSize && j*polygonSize - shipPosition.z - 30*Math.cos(shipRotation.y) < polygonSize){
               	y1 = lastheight1*lastheight2*waveMulti;
 								CUBE1.position.x = i*polygonSize + 30*Math.sin(shipRotation.y);
@@ -326,7 +327,6 @@ window.onload = function () {
 								CUBE2.position.y = y2;
 								CUBE2.position.z = j*polygonSize - 30*Math.cos(shipRotation.y);
             	}
-
 
           		waterGeometryChunks[a][b].vertices.push(
             		new THREE.Vector3(polygonSize*(j+b*jMax), lastheight1*lastheight2*waveMulti, polygonSize*(i+a*iMax)),
@@ -343,7 +343,7 @@ window.onload = function () {
           		);
           		lastheight1 = height1;
         		}
-            
+            lastheight1 = Math.sin((b*jMax+incX-1)/sinMulti);
             lastheight2 = height2;
       		}
       		waterGeometryChunks[a][b].computeFaceNormals();
