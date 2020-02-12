@@ -427,15 +427,19 @@ window.onload = function () {
 			  shipPosition.y = (y1+y2)/2+50;
       
         realShipPosition.x = shipPosition.x + 20*Math.sin(shipRotation.y);
-        realShipPosition.y = shipPosition.y;
+        if( Math.abs( realShipPosition.y - shipPosition.y ) > 0.2 ){
+          if(realShipPosition.y > shipPosition.y)realShipPosition.y -= 0.2;
+            else realShipPosition.y += 0.2;
+        }
+        else realShipPosition.y = shipPosition.y;
         realShipPosition.z = shipPosition.z + 20*Math.cos(shipRotation.y);
 				destroyer.position.x = realShipPosition.x;
 				destroyer.position.y = realShipPosition.y;
 				destroyer.position.z = realShipPosition.z;
       
         if( Math.abs( destroyer.rotation.x - shipRotation.x ) > 0.01 ){
-        if(destroyer.rotation.x > shipRotation.x)destroyer.rotation.x -= 0.01;
-          else destroyer.rotation.x += 0.01;
+          if(destroyer.rotation.x > shipRotation.x)destroyer.rotation.x -= 0.01;
+            else destroyer.rotation.x += 0.01;
         }
         else destroyer.rotation.x = shipRotation.x;
 				destroyer.rotation.y = shipRotation.y;
