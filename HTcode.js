@@ -308,9 +308,9 @@ window.onload = function () {
       let height1=0, lastheight1 = 0, height2=0, lastheight2 = 0;
       lastheight1 = Math.sin((incX-1)/sinMulti);
 			for(let a=0;a<waterMeshChunks.length;a++){
-        lastheight2 = Math.sin((a*iMax+incZ)/sinMulti);
+        lastheight2 = Math.sin((a*iMax-1+incZ)/sinMulti);
 				for(let b=0;b<waterMeshChunks.length;b++){
-          lastheight1 = Math.sin((b*jMax+incX)/sinMulti);
+          lastheight1 = Math.sin((b*jMax-1+incX)/sinMulti);
       		for(let i=0; i<iMax; i++){
 			      height2 = Math.sin((a*iMax+i+incZ)/sinMulti);
         		for(let j=0; j<jMax; j++){
@@ -344,7 +344,7 @@ window.onload = function () {
           		);
           		lastheight1 = height1;
         		}
-            lastheight1 = Math.sin((b*jMax+incX)/sinMulti);
+            lastheight1 = Math.sin((b*jMax-1+incX)/sinMulti);
             lastheight2 = height2;
       		}
       		waterGeometryChunks[a][b].computeFaceNormals();
