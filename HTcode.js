@@ -305,13 +305,13 @@ window.onload = function () {
       if(incX>2*Math.PI)incX-=2*Math.PI;
       if(incZ>2*Math.PI)incZ-=2*Math.PI;
       let height1=0, lastheight1 = 0, height2=0, lastheight2 = 0;
-      lastheight1 = Math.sin((incX-speedX)/sinMulti);
+      lastheight1 = Math.sin((incX-1)/sinMulti);
 			for(let a=0;a<waterMeshChunks.length;a++){
-        lastheight2 = Math.sin((a*jMax+incZ-speedZ)/sinMulti);
+        lastheight2 = Math.sin((a*iMax+incZ-1)/sinMulti);
 				for(let b=0;b<waterMeshChunks.length;b++){
       		for(let i=0; i<iMax; i++){
 			      height2 = Math.sin((a*iMax+i+incZ)/sinMulti);
-        		for(let j=0; j<iMax; j++){
+        		for(let j=0; j<jMax; j++){
 				      height1 = Math.sin((b*jMax+j+incX)/sinMulti);
             	if(i*polygonSize - shipPosition.x - 30*Math.sin(shipRotation.y) < polygonSize && j*polygonSize - shipPosition.z - 30*Math.cos(shipRotation.y) < polygonSize){
               	y1 = lastheight1*lastheight2*waveMulti;
@@ -328,13 +328,13 @@ window.onload = function () {
 
 
           		waterGeometryChunks[a][b].vertices.push(
-            		new THREE.Vector3(polygonSize*(j+b*iMax), lastheight1*lastheight2*waveMulti, polygonSize*(i+a*jMax)),
-            		new THREE.Vector3(polygonSize*(j+b*iMax), height1*lastheight2*waveMulti, polygonSize*(i+1+a*jMax)),
-            		new THREE.Vector3(polygonSize*(j+1+b*iMax), height1*height2*waveMulti, polygonSize*(i+1+a*jMax)),
+            		new THREE.Vector3(polygonSize*(j+b*jMax), lastheight1*lastheight2*waveMulti, polygonSize*(i+a*iMax)),
+            		new THREE.Vector3(polygonSize*(j+b*jMax), height1*lastheight2*waveMulti, polygonSize*(i+1+a*iMax)),
+            		new THREE.Vector3(polygonSize*(j+1+b*jMax), height1*height2*waveMulti, polygonSize*(i+1+a*iMax)),
 
-            		new THREE.Vector3(polygonSize*(j+b*iMax), lastheight1*lastheight2*waveMulti, polygonSize*(i+a*jMax)),
-            		new THREE.Vector3(polygonSize*(j+1+b*iMax), lastheight1*height2*waveMulti, polygonSize*(i+a*jMax)),
-            		new THREE.Vector3(polygonSize*(j+1+b*iMax), height1*height2*waveMulti, polygonSize*(i+1+a*jMax))
+            		new THREE.Vector3(polygonSize*(j+b*jMax), lastheight1*lastheight2*waveMulti, polygonSize*(i+a*iMax)),
+            		new THREE.Vector3(polygonSize*(j+1+b*jMax), lastheight1*height2*waveMulti, polygonSize*(i+a*iMax)),
+            		new THREE.Vector3(polygonSize*(j+1+b*jMax), height1*height2*waveMulti, polygonSize*(i+1+a*iMax))
           		);
           		waterGeometryChunks[a][b].faces.push(
             		new THREE.Face3((i*iMax+j)*6+0, (i*iMax+j)*6+1, (i*iMax+j)*6+2),
@@ -342,7 +342,7 @@ window.onload = function () {
           		);
           		lastheight1 = height1;
         		}
-            lastheight1 = Math.sin((b*jMax+incX-speedX)/sinMulti);
+            lastheight1 = Math.sin((b*jMax+incX-1)/sinMulti);
             lastheight2 = height2;
       		}
       		waterGeometryChunks[a][b].computeFaceNormals();
