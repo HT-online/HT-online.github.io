@@ -315,17 +315,18 @@ window.onload = function () {
 			      height2 = Math.sin((a*iMax+i+incZ)/sinMulti);
         		for(let j=0; j<jMax; j++){
 				      height1 = Math.sin((b*jMax+j+incX)/sinMulti);
-            	if(i*polygonSize - shipPosition.x - 30*Math.sin(shipRotation.y) < polygonSize && j*polygonSize - shipPosition.z - 30*Math.cos(shipRotation.y) < polygonSize){
+              
+            	if(Math.abs(polygonSize*(b*jMax+j) - shipPosition.x - 30*Math.sin(shipRotation.y)) < polygonSize && Math.abs(polygonSize*(a*iMax+i) - shipPosition.z - 30*Math.cos(shipRotation.y)) < polygonSize){
               	y1 = lastheight1*lastheight2*waveMulti;
-								CUBE1.position.x = i*polygonSize + 30*Math.sin(shipRotation.y);
+								CUBE1.position.x = polygonSize*(b*jMax+j) + 30*Math.sin(shipRotation.y);
 								CUBE1.position.y = y1;
-								CUBE1.position.z = j*polygonSize + 30*Math.cos(shipRotation.y);
+								CUBE1.position.z = polygonSize*(a*iMax+i) + 30*Math.cos(shipRotation.y);
             	}
             	if(i*polygonSize - shipPosition.x + 30*Math.sin(shipRotation.y) < polygonSize && j*polygonSize - shipPosition.z + 30*Math.cos(shipRotation.y) < polygonSize){
               	y2 = lastheight1*lastheight2*waveMulti;
-								CUBE2.position.x = i*polygonSize - 30*Math.sin(shipRotation.y);
+								CUBE2.position.x = polygonSize*(b*jMax+j) - 30*Math.sin(shipRotation.y);
 								CUBE2.position.y = y2;
-								CUBE2.position.z = j*polygonSize - 30*Math.cos(shipRotation.y);
+								CUBE2.position.z = polygonSize*(a*iMax+i) - 30*Math.cos(shipRotation.y);
             	}
           		waterGeometryChunks[a][b].vertices.push(
             		new THREE.Vector3(polygonSize*(j+b*jMax), lastheight1*lastheight2*waveMulti, polygonSize*(i+a*iMax)),
