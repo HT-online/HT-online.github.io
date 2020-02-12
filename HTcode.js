@@ -312,19 +312,16 @@ window.onload = function () {
         //console.log('a '+a+' lh2 '+lastheight2+' BEFORE');
 				for(let b=0;b<waterMeshChunks.length;b++){
           lastheight1 = Math.sin((b*jMax-1+incX)/sinMulti);
-          
+          if(a==0&&b==1&&i==0&&j==0)console.log(height2+' h2 2 b');
+          if(a==0&&b==1&&i==0&&j==0)console.log(lastheight2+' lh2 2 b');
       		for(let i=0; i<iMax; i++){
 			      height2 = Math.sin((a*iMax+i+incZ)/sinMulti);
         		for(let j=0; j<jMax; j++){
 				      height1 = Math.sin((b*jMax+j+incX)/sinMulti);
               if(a==0&&b==0&&i==0&&j==0)console.log(height2+' h2 1');
               if(a==0&&b==0&&i==0&&j==0)console.log(lastheight2+' lh2 1');
-              if(a==0&&b==1&&i==0&&j==0)console.log(height2+' h2 2');
-              if(a==0&&b==1&&i==0&&j==0)console.log(lastheight2+' lh2 2');
-              if(a==0&&b==0&&i==1&&j==9)console.log(height2+' h2 3');
-              if(a==0&&b==0&&i==1&&j==9)console.log(lastheight2+' lh2 3');
-              if(a==0&&b==1&&i==1&&j==0)console.log(height2+' h2 4');
-              if(a==0&&b==1&&i==1&&j==0)console.log(lastheight2+' lh2 4');
+              if(a==0&&b==1&&i==0&&j==0)console.log(height2+' h2 2 a');
+              if(a==0&&b==1&&i==0&&j==0)console.log(lastheight2+' lh2 2 a');
             	if(i*polygonSize - shipPosition.x - 30*Math.sin(shipRotation.y) < polygonSize && j*polygonSize - shipPosition.z - 30*Math.cos(shipRotation.y) < polygonSize){
               	y1 = lastheight1*lastheight2*waveMulti;
 								CUBE1.position.x = i*polygonSize + 30*Math.sin(shipRotation.y);
@@ -353,7 +350,7 @@ window.onload = function () {
           		lastheight1 = height1;
         		}
             lastheight1 = Math.sin((b*jMax-1+incX)/sinMulti);
-            //lastheight2 = height2;
+            lastheight2 = height2;
       		}
       		waterGeometryChunks[a][b].computeFaceNormals();
 					waterMeshChunks[a][b].geometry = waterGeometryChunks[a][b];
