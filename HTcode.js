@@ -306,15 +306,15 @@ window.onload = function () {
       if(incX>2*Math.PI)incX-=2*Math.PI;
       if(incZ>2*Math.PI)incZ-=2*Math.PI;
       let height1=0, lastheight1 = 0, height2=0, lastheight2 = 0;
-      lastheight1 = Math.sin((incX-1)/sinMulti);
+      lastheight1 = Math.sin((incX-1)/sinMulti)*multiX;
 			for(let a=0;a<waterMeshChunks.length;a++){
 				for(let b=0;b<waterMeshChunks.length;b++){
-          lastheight1 = Math.sin((b*jMax-1+incX)/sinMulti);
-          lastheight2 = Math.sin((a*iMax-1+incZ)/sinMulti);
+          lastheight1 = Math.sin((b*jMax-1+incX)/sinMulti)*multiX;
+          lastheight2 = Math.sin((a*iMax-1+incZ)/sinMulti)*multiY;
       		for(let i=0; i<iMax; i++){
-			      height2 = Math.sin((a*iMax+i+incZ)/sinMulti);
+			      height2 = Math.sin((a*iMax+i+incZ)/sinMulti)*multiY;
         		for(let j=0; j<jMax; j++){
-				      height1 = Math.sin((b*jMax+j+incX)/sinMulti);
+				      height1 = Math.sin((b*jMax+j+incX)/sinMulti)*multiX;
               
             	if(Math.abs(polygonSize*(b*jMax+j) - shipPosition.x - 30*Math.sin(shipRotation.y)) < polygonSize && Math.abs(polygonSize*(a*iMax+i) - shipPosition.z - 30*Math.cos(shipRotation.y)) < polygonSize){
               	y1 = lastheight1*lastheight2*waveMulti;
@@ -343,7 +343,7 @@ window.onload = function () {
           		);
           		lastheight1 = height1;
         		}
-            lastheight1 = Math.sin((b*jMax-1+incX)/sinMulti);
+            lastheight1 = Math.sin((b*jMax-1+incX)/sinMulti)*multiX;
             lastheight2 = height2;
       		}
       		waterGeometryChunks[a][b].computeFaceNormals();
