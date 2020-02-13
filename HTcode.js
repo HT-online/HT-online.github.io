@@ -251,7 +251,7 @@ window.onload = function () {
     let mult = 2;// Мультипликатор скорости движения камеры
     let sunAngle = 0;
     let incX=0,incZ=0;
-    let multiX=0.1, multiY=0.1, waveMulti=5;// Грубо говоря амплитуда
+    let multiX=0.1, multiY=0.1, waveMulti=10;// Грубо говоря амплитуда
     let sinMulti=1;// Грубо говоря скорость
     let iMax=10,jMax=10;
     let polygonSize = 10;
