@@ -261,7 +261,7 @@ window.onload = function () {
     let realShipPosition = new THREE.Vector3(500+20*Math.sin(shipRotation.y),0,500+20*Math.cos(shipRotation.y));
     createCube(scene,20,10,60,"#00FF00",shipPosition.x,shipPosition.y,shipPosition.z,0,0,0,"ship");
     createCube(scene,6,100,6,"#00FF00",0,0,0,0,0,0);
-    let y1,y2;
+    let y1,y2,y3;
 	
 	
 	  let waterSurface = new THREE.Mesh();// = new THREE.Mesh( waterGeometry, waterMaterial );
@@ -274,6 +274,7 @@ window.onload = function () {
 	  //let ground = createCube(scene,1000,1,1000,"#00FF00",0,-0.5,0,0,0,0);
 		let CUBE1 = createCube(scene,10,100,10,"#00FF00",0,0,0,0,0,0);
 		let CUBE2 = createCube(scene,10,100,10,"#FF0000",0,0,0,0,0,0);
+    let CUBE3 = createCube(scene,10,100,10,"#AAAA00",0,0,0,0,0,0);
   
     let waterMeshChunks = new Array (8);
     for (let i=0; i < waterMeshChunks.length; i++) {
@@ -323,11 +324,17 @@ window.onload = function () {
 								CUBE1.position.y = y1;
 								CUBE1.position.z = polygonSize*(a*iMax+i) + 30*Math.cos(shipRotation.y);
             	}
-            	if(Math.abs(polygonSize*(b*jMax+j) - shipPosition.x + 30*Math.sin(shipRotation.y)) < polygonSize && Math.abs(polygonSize*(a*iMax+i) - shipPosition.z + 30*Math.cos(shipRotation.y)) < polygonSize){
+              if(Math.abs(polygonSize*(b*jMax+j) - shipPosition.x + 25*Math.sin(shipRotation.y)) < polygonSize && Math.abs(polygonSize*(a*iMax+i) - shipPosition.z + 25*Math.cos(shipRotation.y)) < polygonSize){
               	y2 = lastheight1*lastheight2*waveMulti;
-								CUBE2.position.x = polygonSize*(b*jMax+j) - 30*Math.sin(shipRotation.y);
+								CUBE2.position.x = polygonSize*(b*jMax+j) - 25*Math.sin(shipRotation.y);
 								CUBE2.position.y = y2;
-								CUBE2.position.z = polygonSize*(a*iMax+i) - 30*Math.cos(shipRotation.y);
+								CUBE2.position.z = polygonSize*(a*iMax+i) - 25*Math.cos(shipRotation.y);
+            	}
+            	if(Math.abs(polygonSize*(b*jMax+j) - shipPosition.x) < polygonSize && Math.abs(polygonSize*(a*iMax+i) - shipPosition.z) < polygonSize){
+              	y3 = lastheight1*lastheight2*waveMulti;
+								CUBE3.position.x = polygonSize*(b*jMax+j);
+								CUBE3.position.y = y3;
+								CUBE3.position.z = polygonSize*(a*iMax+i);
             	}
           		waterGeometryChunks[a][b].vertices.push(
             		new THREE.Vector3(polygonSize*(j+b*jMax), lastheight1*lastheight2*waveMulti, polygonSize*(i+a*iMax)),
