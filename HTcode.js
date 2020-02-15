@@ -920,9 +920,10 @@ window.onload = function () {
       tmesh.position.set( 100,100,100 );
       tmesh.scale.set(0.1,0.1,0.1);
       scene.add( tmesh );
+      createCube(scene,100,10,1000,"#000000",400,0,0,0,0,0);
   
       });
-      camera.rotation.y += Math.PI;
+      //camera.rotation.y += Math.PI;
       clear = true;
     }
   }
