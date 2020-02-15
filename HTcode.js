@@ -1,8 +1,8 @@
 "use strict";
 
 // задаём размеры игрового поля
-let screenWidth = 2160;
-let screenHeight = 1240;
+let screenWidth = 1080;
+let screenHeight = 720;
 let fogColor = 'lightblue';
 let destroyerHP = 1;
 let enemyHP = 3;
@@ -125,6 +125,8 @@ window.onload = function () {
 
     let iw = window.innerWidth;
     let ih = window.innerHeight;
+  iw = screenWidth;
+  ih = screenHeight;
     let destroyerIsLoaded = false;
     /* Создание сцены */
     let scene = new THREE.Scene();
@@ -133,7 +135,7 @@ window.onload = function () {
 
     renderer.setClearColor(fogColor);
     //renderer.setSize(screenWidth, screenHeight);
-    renderer.setSize(window.innerWidth*0.8, window.innerHeight*0.8);
+    renderer.setSize(screenWidth, screenHeight);
     document.getElementById("gameBox").append(renderer.domElement);
 
     let manager = new THREE.LoadingManager();
@@ -679,8 +681,8 @@ window.onload = function () {
       enemyShip.rotation.x = enemyShipRotation.x;
       enemyShip.rotation.y = enemyShipRotation.y;
 
-      camera.rotation.x += Math.PI /ih/0.01 / 10000 * Math.pow((screenHeight / 2 - mouseY) / 120, 5);// вращение камеры с помощью мыши относительно внутренней оси X
-      camera.rotation.y += Math.PI /iw/0.01 / 10000 * Math.pow((screenWidth / 2 - mouseX) / 120 / screenWidth * screenHeight, 5);// вращение камеры с помощью мыши относительно внутренней оси Y
+      camera.rotation.x += Math.PI / 10000 * Math.pow((screenHeight / 2 - mouseY) / 120, 5);// вращение камеры с помощью мыши относительно внутренней оси X
+      camera.rotation.y += Math.PI / 10000 * Math.pow((screenWidth / 2 - mouseX) / 120 / screenWidth * screenHeight, 5);// вращение камеры с помощью мыши относительно внутренней оси Y
       if(camera.rotation.x > Math.PI/2)camera.rotation.x = Math.PI/2;
       if(camera.rotation.x < -Math.PI/2)camera.rotation.x = -Math.PI/2;
 
