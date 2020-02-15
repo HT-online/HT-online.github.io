@@ -211,7 +211,7 @@ window.onload = function () {
   scene.add( enemyShip );
 
   let fbxLoader = new THREE.FBXLoader();
-  fbxLoader.load( 'oss/source/Ol_Style_Ship.FBX', function ( object ) {
+  fbxLoader.load( 'oss/source/Old_Style_Ship.FBX', function ( object ) {
     object.position.set(0, 10, 6);
     object.traverse( function ( child ) {
       if ( child.isMesh ) {
