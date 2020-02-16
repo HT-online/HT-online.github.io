@@ -597,6 +597,7 @@ window.onload = function () {
             enemyShipPosition.z -= Math.cos(enemyShipRotation.y)*enemySpeed;
         }else{
           //console.log("OK");
+          if(destroyerHP > 0){
           if(l1<l2 && Date.now() - enemyCDR > 2000){
             cannonShoot(0,scene,enemyShip,0,0,0,enemyShipRotation.y+Math.PI/2);
             enemyCDR = Date.now();
@@ -604,7 +605,7 @@ window.onload = function () {
           if(l2<l1 && Date.now() - enemyCDL > 2000){
             cannonShoot(0,scene,enemyShip,0,0,0,enemyShipRotation.y-Math.PI/2);
             enemyCDL = Date.now();
-          }
+          }}
           enemySpeed -= 0.1;
           if(enemySpeed<0)enemySpeed=0;
         }
