@@ -667,7 +667,7 @@ window.onload = function () {
       enemyShipPosition.y = (y4+y5+y6)/3+10;
       enemyShip.position.x = enemyShipPosition.x;
       enemyShip.position.z = enemyShipPosition.z;
-      if(destroyerHP > 0)
+      if(enemyHP > 0)
       if( Math.abs( enemyShip.position.y - enemyShipPosition.y ) > 1 ){
         if(enemyShip.position.y > enemyShipPosition.y)enemyShip.position.y -= 1;
           else enemyShip.position.y += 1;
