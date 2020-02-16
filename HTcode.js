@@ -807,10 +807,10 @@ window.onload = function () {
         cannonShoot(1,scene,destroyer,0,0,0,destroyer.rotation.y+Math.PI*3/2);
         destroyerCDR = Date.now();
       }
+/*
       if(Date.now() - lastUpdate>10000){
-      //console.log( Date.now()-lastUpdate 
-	);
-      lastUpdate = Date.now();}
+      console.log( Date.now()-lastUpdate);
+      lastUpdate = Date.now();}*/
 			if(btn_sft){
         if (btn_w) {
           camera.position.x -= 1 * mult * Math.sin(camera.rotation.y)*Math.cos(camera.rotation.x);
