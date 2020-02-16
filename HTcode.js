@@ -808,7 +808,8 @@ window.onload = function () {
         destroyerCDR = Date.now();
       }
       if(Date.now() - lastUpdate>10000){
-      console.log( Date.now()-lastUpdate );
+      //console.log( Date.now()-lastUpdate 
+	);
       lastUpdate = Date.now();}
 			if(btn_sft){
         if (btn_w) {
@@ -864,8 +865,8 @@ window.onload = function () {
 					waterMeshChunks[i][j].geometry.dispose();
         }
 	
-      if(enemyHP <= 0){enemyShip.position.y-=0.1;console.log("ENEMY DOWN");}
-      if(destroyerHP <= 0){destroyer.position.y-=0.1;console.log("DESTROYER DOWN");}
+      if(enemyHP <= 0){enemyShip.position.y-=0.1;}
+      if(destroyerHP <= 0){destroyer.position.y-=0.1;}
       if(endStart && Date.now() - endCount > 10000)end = true;
       if(enemyHP <= 0 && !endStart){
         endStart = true;
