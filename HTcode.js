@@ -655,6 +655,7 @@ window.onload = function () {
 
       destroyer.position.x = shipPosition.x;
       destroyer.position.z = shipPosition.z;
+      if(destroyerHP > 0)
       if( Math.abs( destroyer.position.y - shipPosition.y ) > 0.6 ){
         if(destroyer.position.y > shipPosition.y)destroyer.position.y -= 0.6;
           else destroyer.position.y += 0.6;
@@ -665,6 +666,7 @@ window.onload = function () {
       enemyShipPosition.y = (y4+y5+y6)/3+10;
       enemyShip.position.x = enemyShipPosition.x;
       enemyShip.position.z = enemyShipPosition.z;
+      if(destroyerHP > 0)
       if( Math.abs( enemyShip.position.y - enemyShipPosition.y ) > 1 ){
         if(enemyShip.position.y > enemyShipPosition.y)enemyShip.position.y -= 1;
           else enemyShip.position.y += 1;
@@ -859,6 +861,9 @@ window.onload = function () {
 					waterGeometryChunks[i][j].dispose();
 					waterMeshChunks[i][j].geometry.dispose();
         }
+	
+      if(enemyHP <= 0)enemyShip.position.y-=0.1;
+      if(destroyerHP <= 0)destroyer.position.y-=0.1;
       if(endStart && Date.now() - endCount > 10000)end = true;
       if(enemyHP <= 0 && !endStart){
         endStart = true;
