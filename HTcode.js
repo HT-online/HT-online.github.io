@@ -551,6 +551,7 @@ window.onload = function () {
       //console.log("l0 "+ l0);
       //console.log("l1 "+ l1);
       //console.log("l2 "+ l2);
+      
       if(enemyHP > 0){
       if(l1>30 && l2>30){
         enemySpeed += 0.01;
@@ -862,8 +863,8 @@ window.onload = function () {
 					waterMeshChunks[i][j].geometry.dispose();
         }
 	
-      if(enemyHP <= 0)enemyShip.position.y-=0.1;
-      if(destroyerHP <= 0)destroyer.position.y-=0.1;
+      if(enemyHP <= 0){enemyShip.position.y-=0.1;console.log("ENEMY DOWN");}
+      if(destroyerHP <= 0){destroyer.position.y-=0.1;console.log("DESTROYER DOWN");}
       if(endStart && Date.now() - endCount > 10000)end = true;
       if(enemyHP <= 0 && !endStart){
         endStart = true;
