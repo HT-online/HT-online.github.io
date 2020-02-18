@@ -6,7 +6,7 @@ let screenHeight = 720;
 let fogColor = 'lightblue';
 let destroyerHP = 1;
 let enemyHP = 3;
-let end = true, endStart = false;
+let end = false, endStart = false;
 let endCount = 0;
 let clear = false;
 
